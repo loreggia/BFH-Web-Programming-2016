@@ -1,0 +1,43 @@
+/* This is a CSS comment */
+body, html {
+	background-color: #bfbfbf;
+	width: 90%;
+	height: 100%;
+	margin: 0px auto 0px auto;
+	padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  -ms-flex-direction: column;
+}
+
+header {
+	background-color: #abcdef;
+	min-height: 50px;
+}
+main {
+  flex: 1;
+}
+nav {
+	background-color: #eeeeee;
+	min-height: 50px;
+}
+aside {
+	float: left;
+	width: 20%;
+	height: 100%;
+	background-color: #bcdef1;
+}
+section {
+	float: right;
+	width: 80%;
+	height: 100%;
+	background-color: #def123;
+}
+footer {
+	background-color: #ccddee;
+	min-height: 50px;
+}

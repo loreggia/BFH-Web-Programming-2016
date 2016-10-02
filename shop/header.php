@@ -6,5 +6,9 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<header>header</header>
+			<header>
+				<a href="/shop" class="logo">Logo</a>
+				<input type="text" class="searchbox"></input>
+				<a href="/shop/login.php" class="login">Login</a>
+			</header>
 			<nav>nav</nav>

@@ -11,7 +11,7 @@ foreach($products as $product){
 	}
 }
 
-//Durch Ersetzung von SQL können die Kinderartikel direkt hinzugefügt werden.
+//Durch Ersetzung von SQL kÃ¶nnen die Kinderartikel direkt hinzugefÃ¼gt werden.
 //Momentan werden nur Vaterartikel ausgegeben.
 foreach($currProducts as $product){
 	print_r("<pre>").print_r($product).print_r("</pre><br />");

@@ -1,5 +1,7 @@
 <?php
-include 'artikelaufbau.php'; // Artikel
+require_once "artikelaufbau.php"; // Artikel
+require_once "database.php";
+
 $rootLink = "/shop/";
 
 $navLinks = array(
@@ -9,23 +11,15 @@ $navLinks = array(
 	)
 );
 
-//Der untere Code kann durch SQL ersetzt werden.
-//Da die Kategorien dort in einer eigenen Tabelle sind, wird dies einfacher gehen.
-$categories = array();
-foreach($products as $product){
-	if($product['category']!=""){
-		if(!(in_array($product['category'],$categories))){
-			array_push($categories,$product['category']);
-		}
-	}
-}
+$database = new Database($CONFIG);
+$database->connect();
+$categories = $database->query("SELECT * FROM category");
 
-
-foreach($categories as $category){
+foreach($categories as $category) {
 	array_push($navLinks,
 		array( 
-			"name" => $category,
-			"link" => $rootLink."category.php?cat=".$category
+			"name" => $category["name"],
+			"link" => $rootLink."category.php?cat=".$category["url"]
 		)
 	);
 }

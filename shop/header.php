@@ -4,6 +4,7 @@
 	<head>
 		<title>Tester</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="css.css" />
+        <meta charset="utf-8" />
 	</head>
 	<body>
 		<div class="wrapper">

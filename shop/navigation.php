@@ -13,7 +13,7 @@ $navLinks = array(
 
 $database = new Database($CONFIG);
 $database->connect();
-$categories = $database->query("SELECT * FROM category");
+$categories = $database->query("SELECT * FROM category WHERE category_id <> parentId");
 
 foreach($categories as $category) {
 	array_push($navLinks,

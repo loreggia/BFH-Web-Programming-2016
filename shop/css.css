@@ -1,44 +1,94 @@
 /* This is a CSS comment */
 body, html {
-	background-color: #bfbfbf;
-	width: 90%;
-	height: 100%;
-	margin: 0px auto 0px auto;
-	padding: 0;
+    width: 90%;
+    height: 100%;
+    margin: 0px auto 0px auto;
+    padding: 0;
+    font-family: sans-serif;
 }
 
 .wrapper {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  -ms-flex-direction: column;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    -ms-flex-direction: column;
 }
 
 header {
-	background-color: #abcdef;
-	min-height: 50px;
+    background-color: #abcdef;
+    min-height: 50px;
 }
+
+#logo {
+    height: 100%;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    justify-content: center;
+}
+
+#search-panel {
+    height: 100%;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    justify-content: center;
+}
+
+#user-info {
+    height: 100%;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    justify-content: center;
+}
+
 main {
-  flex: 1;
+    flex: 1;
 }
+
 nav {
-	background-color: #eeeeee;
-	min-height: 100px;
+    background-color: #eeeeee;
 }
+
+.main-navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-navigation ul li {
+    float: left;
+}
+
 aside {
-	float: left;
-	width: 20%;
-	max-width: 150px;
-	height: 100%;
-	background-color: #bcdef1;
+    float: left;
+    width: 20%;
+    max-width: 150px;
+    height: 100%;
+    background-color: #bcdef1;
 }
+
 section {
-	float: right;
-	width: 100%;
-	height: 100%;
-	background-color: #def123;
+    float: right;
+    width: 100%;
+    height: 100%;
+    background-color: #def123;
 }
+
 footer {
-	background-color: #ccddee;
-	min-height: 50px;
+    background-color: #ccddee;
+    min-height: 50px;
+}
+
+input[type=text] {
+    padding: 5px;
+    margin: 5px;
+    border-color: #b4b4b4;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }

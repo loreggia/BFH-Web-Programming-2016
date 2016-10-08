@@ -1,4 +1,4 @@
-			<footer>footer</footer>
-		</div>
-	</body>
+        <footer>footer</footer>
+    </div>
+</body>
 </html>

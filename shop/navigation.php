@@ -1,9 +1,4 @@
 <?php
-require_once "artikelaufbau.php"; // Artikel
-require_once "database.php";
-
-$rootLink = "/shop/";
-
 $navLinks = array(
 	array( 
 		"name" => "Home",
@@ -11,8 +6,6 @@ $navLinks = array(
 	)
 );
 
-$database = new Database($CONFIG);
-$database->connect();
 $categories = $database->query("SELECT * FROM category WHERE category_id <> parentId");
 
 foreach($categories as $category) {

@@ -1,20 +1,10 @@
 <?php
-include 'artikelaufbau.php'; // Artikel
+$products = $articleClass->getArticleList($_GET["cat"]);
 
-//Wird durch SQL ersetzt!
-$currProducts = array();
 foreach($products as $product){
-	if($product['category']==$_GET['cat']){
-		if(!(in_array($product,$currProducts))){
-			array_push($currProducts,$product);
-		}
-	}
-}
-
-//Durch Ersetzung von SQL können die Kinderartikel direkt hinzugefügt werden.
-//Momentan werden nur Vaterartikel ausgegeben.
-foreach($currProducts as $product){
+	$articleClass->getArticleListDetail($product);
 	print_r("<pre>").print_r($product).print_r("</pre><br />");
+	echo ('<a href="'.$rootLink.'article.php?art='.$product["ordernumber"].'">'.$product["name"].'</a>');
 }
 
 ?>

@@ -1,3 +1,3 @@
 <?php
-include 'index.php'; // Nur Index nötig
+include 'index.php';
 ?>

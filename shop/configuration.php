@@ -1,9 +1,23 @@
 <?php
 
-// MySQL-Konfiguration
-$CONFIG["database"]["host"] = "localhost";
-$CONFIG["database"]["name"] = "shop";
-//$CONFIG["database"]["userName"] = "shop";
-//$CONFIG["database"]["password"] = "vrUFQh9sdchYZymd";
-$CONFIG["database"]["userName"] = "root";
-$CONFIG["database"]["password"] = "";
+namespace Shop;
+
+class Configuration
+{
+    private $configuration;
+
+    function __construct()
+    {
+        $this->configuration = parse_ini_file("configuration.ini.php", true);
+    }
+
+    public function get($section, $key)
+    {
+        return $this->configuration[$section][$key];
+    }
+
+    public function getSection($section)
+    {
+        return $this->configuration[$section];
+    }
+}

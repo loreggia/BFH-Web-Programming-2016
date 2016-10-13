@@ -5,7 +5,7 @@
     <title>Tester</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="css.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="resources/css.css"/>
 </head>
 <body>
 <div class="wrapper">
@@ -28,6 +28,7 @@
     </header>
     <nav class="main-navigation">
         <ul>
+            <li><a href="<?= $rootLink ?>">Home</a></li>
             <?php
             foreach ($navLinks as $navigation) {
                 echo "<li><a href='$navigation[link]'>$navigation[name]</a></li>";

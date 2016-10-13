@@ -1,0 +1,11 @@
+INSERT INTO shop.attribute_article (article_id, attribute_id, value) VALUES (1, 3, 'Blau');
+INSERT INTO shop.attribute_article (article_id, attribute_id, value) VALUES (3, 3, 'Grün');
+INSERT INTO shop.attribute_article (article_id, attribute_id, value) VALUES (3, 4, '10');
+INSERT INTO shop.attribute_article (article_id, attribute_id, value) VALUES (4, 3, 'Rot');
+INSERT INTO shop.attribute_article (article_id, attribute_id, value) VALUES (4, 4, '12');
+INSERT INTO shop.attribute_article (article_id, attribute_id, value) VALUES (6, 1, '200');
+INSERT INTO shop.attribute_article (article_id, attribute_id, value) VALUES (6, 2, '100');
+INSERT INTO shop.attribute_article (article_id, attribute_id, value) VALUES (7, 1, '200');
+INSERT INTO shop.attribute_article (article_id, attribute_id, value) VALUES (7, 2, '200');
+INSERT INTO shop.attribute_article (article_id, attribute_id, value) VALUES (8, 1, '400');
+INSERT INTO shop.attribute_article (article_id, attribute_id, value) VALUES (8, 2, '200');

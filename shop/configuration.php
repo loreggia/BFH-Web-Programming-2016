@@ -1,7 +1,5 @@
 <?php
 
-namespace Shop;
-
 class Configuration
 {
     private $configuration;

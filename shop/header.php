@@ -27,13 +27,5 @@
         </div>
     </header>
     <nav class="main-navigation">
-        <ul>
-            <li><a href="<?= $rootLink ?>">Home</a></li>
-            <?php
-            foreach ($navLinks as $navigation) {
-                echo "<li><a href='$navigation[link]'>$navigation[name]</a></li>";
-            }
-
-            ?>
-        </ul>
+        <?php echoNavigationItems($categoryTree, 0); ?>
     </nav>

@@ -64,6 +64,39 @@ nav {
     float: left;
 }
 
+.nav-cat-0 {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.nav-item-0 {
+    padding: 5px;
+    padding-left: 0;
+    background-color: #aaa;
+}
+
+.nav-cat-1 {
+    font-weight: normal;
+    font-size: 1em;
+}
+
+.nav-item-1 {
+    padding: 5px;
+    margin-right: 10px;
+    background-color: #bbb;
+}
+
+.nav-cat-2 {
+    padding: 5px;
+    font-style: italic;
+    font-size: 0.75em;
+}
+
+.nav-item-2 {
+    margin-right: 10px;
+    background-color: #ccc;
+}
+
 aside {
     float: left;
     width: 20%;

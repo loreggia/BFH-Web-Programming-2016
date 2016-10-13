@@ -1,5 +1,4 @@
 <?php
-namespace DataAccess;
 
 class Article
 {

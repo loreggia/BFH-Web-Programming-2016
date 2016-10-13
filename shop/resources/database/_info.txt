@@ -1,0 +1,2 @@
+phpMyAdminDump.sql ist mit Standardeinstellungen erstellt worden
+schema.php sowie die shop_*.sql Files wurden in PhpStorm generiert und sind mMn. etwas übersichtlicher, schlussendlich spielt es aber nicht wirklich eine Rolle..

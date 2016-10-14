@@ -20,3 +20,19 @@ function createTree($rows, $parentId, $idColumn, $parentIdColumn)
 
     return $children;
 }
+
+function createLink($name, $action, $params = null)
+{
+    global $rootLink;
+    $paramString = "";
+
+    if ($params && count($params) > 0) {
+        while ($param = current($params)) {
+            $paramString .= "&" . key($params) . "=" . $param;
+            next($params);
+        }
+
+    }
+    $url = $rootLink . "index.php?action=" . $action . $paramString;
+    return '<a href="' . $url . '">' . $name . '</a>';
+}

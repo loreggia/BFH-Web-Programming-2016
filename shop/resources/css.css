@@ -5,6 +5,20 @@ body, html {
     margin: 0 auto 0 auto;
     padding: 0;
     font-family: sans-serif;
+    color: black;
+}
+
+a {
+    font-weight: bold;
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover, a:active, a:visited:hover {
+    color: orange;
 }
 
 .wrapper {
@@ -15,7 +29,7 @@ body, html {
 }
 
 header {
-    background-color: #abcdef;
+    background-color: #eeeeee;
     min-height: 50px;
 }
 
@@ -54,17 +68,10 @@ nav {
     background-color: #eeeeee;
 }
 
-.main-navigation ul {
+.nav-cat-0 {
     margin: 0;
     padding: 0;
     list-style: none;
-}
-
-.main-navigation ul li {
-    float: left;
-}
-
-.nav-cat-0 {
     font-weight: bold;
     font-size: 1.5em;
 }
@@ -72,7 +79,8 @@ nav {
 .nav-item-0 {
     padding: 5px;
     padding-left: 0;
-    background-color: #aaa;
+    float: left;
+    /*background-color: #aaa;*/
 }
 
 .nav-cat-1 {
@@ -83,18 +91,21 @@ nav {
 .nav-item-1 {
     padding: 5px;
     margin-right: 10px;
-    background-color: #bbb;
+    float: none;
+    /*background-color: #bbb;*/
 }
 
 .nav-cat-2 {
     padding: 5px;
     font-style: italic;
     font-size: 0.75em;
+    float: right;
 }
 
 .nav-item-2 {
     margin-right: 10px;
-    background-color: #ccc;
+    float: none;
+    /*background-color: #ccc;*/
 }
 
 aside {
@@ -102,18 +113,18 @@ aside {
     width: 20%;
     max-width: 150px;
     height: 100%;
-    background-color: #bcdef1;
+    /*background-color: #bcdef1;*/
 }
 
 section {
     float: right;
     width: 100%;
     height: 100%;
-    background-color: #def123;
+    /*background-color: #def123;*/
 }
 
 footer {
-    background-color: #ccddee;
+    /*background-color: #ccddee;*/
     min-height: 50px;
 }
 

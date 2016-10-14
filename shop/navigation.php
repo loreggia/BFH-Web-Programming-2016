@@ -1,7 +1,5 @@
 <?php
 
-$rootLink = "/shop/";
-
 $navLinks = [];
 
 $categoryTree = $categoryStore->getCategoryTree();
@@ -15,11 +13,11 @@ function echoNavigationItems($categoryTree, $depth)
     echo "<ul class='nav-cat-$depth'>";
     foreach ($categoryTree as $category) {
         echo "<li class='nav-item-$depth'>";
-        echo "<a href='category.php?cat=$category[url]'>$category[name]</a>";
+        echo createLink($category["name"], "category", ["categoryUrl" => $category["url"]]);
         echoNavigationItems($category["children"], $depth + 1);
         echo "</li>";
     }
     echo "</ul>";
 }
 
-?>
+echoNavigationItems($categoryTree, 0);

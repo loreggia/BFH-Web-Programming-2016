@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2016 at 12:28 AM
+-- Generation Time: Oct 14, 2016 at 02:21 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `article`
 --
 
+DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
   `article_id` int(11) NOT NULL,
   `article_id_parent` int(11) DEFAULT NULL,
@@ -61,6 +62,7 @@ INSERT INTO `article` (`article_id`, `article_id_parent`, `category_id`, `manufa
 -- Table structure for table `attribute`
 --
 
+DROP TABLE IF EXISTS `attribute`;
 CREATE TABLE `attribute` (
   `attribute_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
@@ -82,6 +84,7 @@ INSERT INTO `attribute` (`attribute_id`, `name`) VALUES
 -- Table structure for table `attribute_article`
 --
 
+DROP TABLE IF EXISTS `attribute_article`;
 CREATE TABLE `attribute_article` (
   `attribute_article_id` int(11) NOT NULL,
   `article_id` int(11) NOT NULL,
@@ -112,6 +115,7 @@ INSERT INTO `attribute_article` (`attribute_article_id`, `article_id`, `attribut
 -- Table structure for table `category`
 --
 
+DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `category_id` int(11) NOT NULL,
   `category_id_parent` int(11) DEFAULT NULL,
@@ -140,6 +144,7 @@ INSERT INTO `category` (`category_id`, `category_id_parent`, `name`, `url`, `des
 -- Table structure for table `manufacturer`
 --
 
+DROP TABLE IF EXISTS `manufacturer`;
 CREATE TABLE `manufacturer` (
   `manufacturer_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -161,6 +166,7 @@ INSERT INTO `manufacturer` (`manufacturer_id`, `name`, `description`, `image`) V
 -- Table structure for table `option`
 --
 
+DROP TABLE IF EXISTS `option`;
 CREATE TABLE `option` (
   `option_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
@@ -181,6 +187,7 @@ INSERT INTO `option` (`option_id`, `name`) VALUES
 -- Table structure for table `option_article`
 --
 
+DROP TABLE IF EXISTS `option_article`;
 CREATE TABLE `option_article` (
   `option_article_id` int(11) NOT NULL,
   `article_id` int(11) NOT NULL,

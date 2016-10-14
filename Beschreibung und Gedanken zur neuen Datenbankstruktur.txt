@@ -1,0 +1,20 @@
+Kannst Du die Fremdschlüssel alle definieren. Habe es nicht geschafft...
+
+Es gibt nur noch Einzelartikel.
+Die Attribute sind globale Eigenschaften, die für das Produkt sind.
+Optionen sind variable Werte für das Produkt.
+=> Wenn ein Artikel keine Optionen hat, ist der Artikel ein Artikel ohne "varianten".
+
+====> Eine Idee von mir. Muss man nicht so einfügen.
+Sets sind vordefinierte Sets (Mit Namen) für den angegebenen Artikel. Dies setzt die Optionen zu seinen definierten Werten
+=> Wenn ein Artikel Sets hat, wird zusätzlich "Selber konfigurieren" möglich sein.
+=> Sets haben priorität vor "Selber konfigurieren". Darum ein isDefault bei den sets
+==> Wir können auch so machen, dass ein Artikel NUR Sets hat und kein "Selber konfigurieren"
+
+Ein Artikel ohne Sets hat dann nur "Selber konfigurieren"
+Bei "Selber konfigurieren" sind die option_article.isDefault als default-Wert zu nehmen
+
+Unter der Tabelle sets_option_article werden die bereits definierten Optionen zum Artikel angegeben.
+=> Relation zur Optionen-Relation...
+
+Hoffe alles ist verständlich...

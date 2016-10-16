@@ -13,7 +13,7 @@ function echoNavigationItems($categoryTree, $depth)
     echo "<ul class='nav-cat-$depth'>";
     foreach ($categoryTree as $category) {
         echo "<li class='nav-item-$depth'>";
-        echo createLink($category["name"], "category", ["categoryUrl" => $category["url"]]);
+        echo createLink(getRowText($category, "name"), "category", ["categoryUrl" => $category["url"]]);
         echoNavigationItems($category["children"], $depth + 1);
         echo "</li>";
     }

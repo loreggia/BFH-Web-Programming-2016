@@ -1,1 +1,1 @@
-<footer>footer</footer>
+<footer>Copyright &copy; 2016 ...</footer>

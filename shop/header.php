@@ -3,12 +3,12 @@
 </div>
 
 <div id="user-info">
-    <?php echo createLink("Login", "login"); ?>
+    <?php echo createLink(getLangText("login"), "login"); ?>
 </div>
 
 <div id="search-panel">
     <form name="search-form" action="/shop/index.php" method="get">
         <input type="hidden" name="action" value="search"/>
-        <input type="text" class="searchbox" name="q" placeholder="Suche"/>
+        <input type="text" class="searchbox" name="q" placeholder="<?= getLangText("search") ?>"/>
     </form>
 </div>

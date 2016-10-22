@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2016 at 12:34 AM
+-- Generation Time: Oct 22, 2016 at 02:36 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -158,7 +158,7 @@ CREATE TABLE `configuration` (
 --
 
 INSERT INTO `configuration` (`configuration_id`, `category`, `key`, `value`) VALUES
-(1, 'general', 'sitename', 'Webshop');
+(1, 'general', 'sitename', 'Computershop');
 
 -- --------------------------------------------------------
 

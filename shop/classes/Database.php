@@ -26,7 +26,7 @@ class Database
         }
     }
 
-    private function handleException($ex)
+    private function handleException(PDOException $ex)
     {
         echo "Sorry, this website is experiencing problems.\nError: Failed to make a MySQL connection, here is why:\n" . $ex->getMessage();
         exit;
@@ -69,6 +69,7 @@ class Database
             return $result;
         } catch (PDOException $ex) {
             $this->handleException($ex);
+            return [];
         }
     }
 
@@ -86,6 +87,7 @@ class Database
             return $sth->execute($params);
         } catch (PDOException $ex) {
             $this->handleException($ex);
+            return false;
         }
     }
 }

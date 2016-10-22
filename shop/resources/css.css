@@ -8,9 +8,17 @@ body, html {
     color: black;
 }
 
+body {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+
 a {
     font-weight: bold;
     color: black;
+    text-decoration: none;
 }
 
 a:visited {
@@ -21,16 +29,12 @@ a:hover, a:active, a:visited:hover {
     color: orange;
 }
 
-.wrapper {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    -ms-flex-direction: column;
-}
-
 header {
-    background-color: #eeeeee;
+    padding: 10px;
+    background-color: #eee;
     min-height: 50px;
+    border: solid #aaa;
+    border-width: 0 1px;
 }
 
 #logo {
@@ -60,75 +64,91 @@ header {
     justify-content: center;
 }
 
+nav {
+    border: solid #aaa;
+    border-width: 0 1px 1px 1px;
+    background-color: #eee;
+    z-index: 10000;
+}
+
+nav > ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    position: relative;
+}
+
+nav > ul ul {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    display: none;
+    padding: 0px;
+    margin: 0px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+nav > ul li {
+    display: inline;
+    float: left;
+    position: relative;
+    background-color: #eee;
+}
+
+nav > ul li:hover > ul {
+    display: block;
+}
+
+nav > ul ul > li > ul {
+    top: 0;
+    left: 100%;
+}
+
+nav > ul a {
+    text-decoration: none;
+    padding: 10px;
+    float: left;
+    min-width: 100px;
+}
+
+nav > ul a:hover {
+    background: #cccccc;
+    color: #333333;
+}
+
+nav > ul li:hover {
+    background-color: #ddd;
+}
+
 main {
     flex: 1;
+    border: solid #aaa;
+    border-width: 0 1px 0 1px;
 }
 
-nav {
-    background-color: #eeeeee;
-}
-
-.nav-cat-0 {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-.nav-item-0 {
-    padding: 5px;
-    padding-left: 0;
+section {
     float: left;
-    /*background-color: #aaa;*/
+    padding: 10px;
 }
 
-.nav-cat-1 {
-    font-weight: normal;
-    font-size: 1em;
-    list-style: none;
-}
-
-.nav-item-1 {
-    padding: 5px;
-    margin-right: 10px;
+section.breadcrumbs {
     float: none;
-    /*background-color: #bbb;*/
-}
-
-.nav-cat-2 {
-    padding: 5px;
-    font-style: italic;
-    font-size: 0.75em;
-    float: right;
-    list-style: none;
-}
-
-.nav-item-2 {
-    margin-right: 10px;
-    float: none;
-    /*background-color: #ccc;*/
+    border: solid #aaa;
+    border-width: 0 0 1px 0;
 }
 
 aside {
     float: left;
     width: 20%;
     max-width: 150px;
-    height: 100%;
-    /*background-color: #bcdef1;*/
-}
-
-section {
-    float: right;
-    width: 100%;
-    height: 100%;
-    /*background-color: #def123;*/
+    padding: 10px;
 }
 
 footer {
-    /*background-color: #ccddee;*/
-    min-height: 50px;
+    padding: 10px;
     text-align: center;
+    border: solid #aaa;
+    border-width: 1px 1px 0 1px;
 }
 
 input[type=text] {

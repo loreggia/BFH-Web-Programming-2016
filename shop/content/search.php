@@ -1,5 +1,6 @@
+<aside>search aside</aside>
+
 <section>
-    <aside>search aside</aside>
     <?php
 
     $searchString = $_GET["q"];

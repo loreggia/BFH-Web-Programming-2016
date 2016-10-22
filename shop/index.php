@@ -11,6 +11,9 @@ $database = new Database($configuration);
 
 require_once "classes/BaseStore.php";
 
+require_once "classes/ConfigurationStore.php";
+$configurationStore = new ConfigurationStore($database);
+
 require_once "classes/CategoryStore.php";
 $categoryStore = new CategoryStore($database);
 
@@ -53,8 +56,8 @@ switch ($action) {
         $fileName = "home.php";
         break;
 }
+
 $body = "";
-$pageTitle = null;
 if ($fileName) {
     ob_start();
     require_once "content/" . $fileName;
@@ -62,36 +65,44 @@ if ($fileName) {
     ob_end_clean();
 }
 
+$siteTitle = $configurationStore->getValue("sitename", "Webshop");
 if (isset($pageTitle) && $pageTitle) {
-    $pageTitle = " - " . $pageTitle;
+    $siteTitle .= " - " . $pageTitle;
 }
+
+// todo
+$breadCrumbs = "";
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Webshop<?= $pageTitle ?></title>
+    <title><?= $siteTitle ?></title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" media="screen" href="resources/css.css"/>
 </head>
 <body>
-<div class="wrapper">
-    <header>
-        <?php require_once "header.php"; ?>
-    </header>
+<header>
+    <?php require_once "header.php"; ?>
+</header>
 
-    <nav>
-        <?php require_once "navigation.php"; ?>
-    </nav>
+<nav>
+    <?php require_once "navigation.php"; ?>
+</nav>
 
-    <main>
-        <?= $body ?>
-    </main>
+<main>
+    <?php if (!empty($breadCrumbs)) { ?>
+        <section class="breadcrumbs">
+            <?= $breadCrumbs ?>
+        </section>
+    <?php } ?>
 
-    <footer>
-        <?php require_once "footer.php"; ?>
-    </footer>
-</div>
+    <?= $body ?>
+</main>
+
+<footer>
+    <?php require_once "footer.php"; ?>
+</footer>
 </body>
 </html>

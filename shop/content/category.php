@@ -1,5 +1,6 @@
+<aside>category aside</aside>
+
 <section>
-    <aside>category aside</aside>
     <?php
     $articles = $articleStore->getArticleList($_GET["categoryUrl"]);
 

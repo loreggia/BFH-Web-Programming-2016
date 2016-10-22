@@ -77,4 +77,15 @@ class Database
     {
         return $this->query($sql, $params, PDO::FETCH_CLASS, $className);
     }
+
+    public function execute($sql, $params = null)
+    {
+        try {
+            $dbh = Database::$databaseHandle;
+            $sth = $dbh->prepare($sql);
+            return $sth->execute($params);
+        } catch (PDOException $ex) {
+            $this->handleException($ex);
+        }
+    }
 }

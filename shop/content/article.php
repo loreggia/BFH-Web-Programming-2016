@@ -1,5 +1,6 @@
+<aside>article aside</aside>
+
 <section>
-    <aside>article aside</aside>
     <?php
     $ordernumber = $_GET["ordernumber"];
 

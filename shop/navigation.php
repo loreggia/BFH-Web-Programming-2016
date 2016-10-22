@@ -15,7 +15,13 @@ function echoNavigationItems($categoryTree, $depth)
     if ($categoryTree && count($categoryTree) != 0) {
         foreach ($categoryTree as $category) {
             echo "<li class='nav-item nav-item-$depth'>";
-            echo createLink(getRowText($category, "name"), "category", ["categoryUrl" => $category["url"]]);
+            $linkText = getRowText($category, "name");
+
+            if ($depth > 0 && $category["children"] && count($category["children"]) > 0) {
+                $linkText .= " &rArr;";
+            }
+
+            echo createLink($linkText, "category", ["categoryUrl" => $category["url"]]);
             echoNavigationItems($category["children"], $depth + 1);
             echo "</li>";
         }

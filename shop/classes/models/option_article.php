@@ -11,6 +11,12 @@ class Option_Article
     /* @var $option_id integer */
     public $option_id;
 
-    /* @var $value string */
-    public $value;
+    /* @var $price double */
+    public $price;
+	
+	/* @var $pseudoprice double */
+    public $pseudoprice;
+	
+	/* @var $isDefault integer */
+    public $isDefault;
 }

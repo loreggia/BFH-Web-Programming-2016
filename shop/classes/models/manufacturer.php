@@ -8,9 +8,15 @@ class Manufracturer
     /* @var $name string */
     public $name;
 
-    /* @var $description string */
-    public $description;
+    /* @var $description_de string */
+    public $description_de;
+	
+	/* @var $description_en string */
+    public $description_en;
+	
+	/* @var $description_fr string */
+    public $description_fr;
 
-    /* @var $image string */
-    public $image;
+    /* @var $image_id integer */
+    public $image_id;
 }

@@ -11,6 +11,12 @@ class Attribute_Article
     /* @var $attribute_id integer */
     public $attribute_id;
 
-    /* @var $value string */
-    public $value;
+    /* @var $value_de string */
+    public $value_de;
+	
+	/* @var $value_en string */
+    public $value_en;
+	
+	/* @var $value_fr string */
+    public $value_fr;
 }

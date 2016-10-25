@@ -5,9 +5,6 @@ class Article
     /* @var $article_id integer */
     public $article_id;
 
-    /* @var $article_id_parent integer */
-    public $article_id_parent;
-
     /* @var $category_id integer */
     public $category_id;
 
@@ -17,8 +14,14 @@ class Article
     /* @var $ordernumber string */
     public $ordernumber;
 
-    /* @var $name string */
-    public $name;
+    /* @var $name_de string */
+    public $name_de;
+	
+	/* @var $name_en string */
+    public $name_en;
+	
+	/* @var $name_fr string */
+    public $name_fr;
 
     /* @var $price double */
     public $price;
@@ -26,15 +29,24 @@ class Article
     /* @var $pseudoprice double */
     public $pseudoprice;
 
-    /* @var $description string */
-    public $description;
+    /* @var $description_de string */
+    public $description_de;
+	
+	/* @var $description_en string */
+    public $description_en;
+	
+	/* @var $description_fr string */
+    public $description_fr;
 
-    /* @var $description_long string */
-    public $description_long;
+    /* @var $description_long_de string */
+    public $description_long_de;
+	
+	/* @var $description_long_en string */
+    public $description_long_en;
+	
+	/* @var $description_long_fr string */
+    public $description_long_fr;
 
-    /* @var $image string */
-    public $image;
-
-    /* @var $isAlone boolean */
-    public $isAlone;
+    /* @var $image_id integer */
+    public $image_id;
 }

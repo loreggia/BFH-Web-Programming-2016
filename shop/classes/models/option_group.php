@@ -1,11 +1,8 @@
 <?php
 
-class Option
+class Option_Group
 {
-    /* @var $option_id integer */
-    public $option_id;
-	
-	/* @var $option_group_id integer */
+    /* @var $option_group_id integer */
     public $option_group_id;
 
     /* @var $name_de string */

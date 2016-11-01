@@ -3,7 +3,7 @@
 class Database
 {
     /* @var $databaseHandle PDO */
-    private static $databaseHandle;
+    private $databaseHandle;
 
     function __construct()
     {
@@ -15,11 +15,11 @@ class Database
         $dbname = $section["dbname"];
         $port = $section["port"];
 
-        if (Database::$databaseHandle == null) {
+        if ($this->databaseHandle == null) {
             try {
                 $dbh = new PDO("mysql:host=$host:$port;dbname=$dbname", $username, $password);
                 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                Database::$databaseHandle = $dbh;
+                $this->databaseHandle = $dbh;
             } catch (PDOException $ex) {
                 $this->handleException($ex);
             }
@@ -42,7 +42,7 @@ class Database
     {
         try {
             /* @var $dbh PDO */
-            $dbh = Database::$databaseHandle;
+            $dbh = $this->databaseHandle;
 
             $sth = $dbh->prepare($sql);
 
@@ -82,9 +82,19 @@ class Database
     public function execute($sql, $params = null)
     {
         try {
-            $dbh = Database::$databaseHandle;
+            $dbh = $this->databaseHandle;
             $sth = $dbh->prepare($sql);
             return $sth->execute($params);
+        } catch (PDOException $ex) {
+            $this->handleException($ex);
+            return false;
+        }
+    }
+
+    public function getLastInsertId()
+    {
+        try {
+            return $this->databaseHandle->lastInsertId();
         } catch (PDOException $ex) {
             $this->handleException($ex);
             return false;

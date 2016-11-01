@@ -2,23 +2,40 @@
 
 class ArticleStore extends BaseStore
 {
+    /**
+     * @var CategoryStore
+     */
     private $categoryStore;
 
-    public function __construct(Database $database, CategoryStore $categoryStore)
+    /**
+     * @var ImageStore
+     */
+    private $imageStore;
+
+    public function __construct(Database $database, CategoryStore $categoryStore, ImageStore $imageStore)
     {
         parent::__construct($database);
         $this->database = $database;
         $this->categoryStore = $categoryStore;
+        $this->imageStore = $imageStore;
     }
 
     /*
      * Ladet einen Artikel inkl. attributes und options
      */
+
+    public function getArticle($ordernumber)
+    {
+        $articleArr = $this->database->queryAssoc("SELECT * FROM article WHERE ordernumber = :ordernumber", ["ordernumber" => $ordernumber]);
+        return $this->getArticleDetails($articleArr[0]);
+    }
+
     public function getArticleDetails($article)
     {
         $article["attributes"] = $this->getArticleAttributes($article["article_id"]);
         $article["options"] = $this->getArticleOptions($article["article_id"]);
 		$article["sets"] = $this->getArticleSets($article["article_id"]);
+        $article["image"] = $this->imageStore->getById($article["image_id"]);
         return $article;
     }
 
@@ -56,10 +73,10 @@ class ArticleStore extends BaseStore
 		INNER JOIN option opt ON o2a.option_id = opt.option_id
 		INNER JOIN option_group ogr ON ogr.option_group_id = opt.option_group_id
 		WHERE o2a.article_id = :articleId", ["articleId" => $articleId]);
-		
+
 		$res = array();
 		$resKeys = array();
-		
+
 		foreach ($results as $result){
 			if(!in_array($result["groupname_de"], $resKeys)){
 				$res[$result["groupname_de"]] = array();
@@ -67,11 +84,11 @@ class ArticleStore extends BaseStore
 			}
 			array_push($res[$result["groupname_de"]], $result);
 		}
-			
-		return $res;
+
+        return $res;
     }
-	
-	public function getArticleSets($articleId)
+
+    public function getArticleSets($articleId)
     {
         $database = $this->database;
         $results = $database->queryAssoc("
@@ -94,25 +111,19 @@ class ArticleStore extends BaseStore
 		INNER JOIN option opt ON opt.option_id = o2a.option_id
 		INNER JOIN option_group ogr ON ogr.option_group_id = opt.option_group_id
 		WHERE sets.article_id = :articleId", ["articleId" => $articleId]);
-		
-		$res = array();
+
+        $res = array();
 		$resKeys = array();
-		
-		foreach ($results as $result){
+
+        foreach ($results as $result){
 			if(!in_array($result["setname_de"], $resKeys)){
 				$res[$result["setname_de"]] = array();
 				array_push($resKeys, $result["setname_de"]);
 			}
 			array_push($res[$result["setname_de"]], $result);
 		}
-			
-		return $res;
-    }
 
-    public function getArticle($ordernumber)
-    {
-        $articleArr = $this->database->queryAssoc("SELECT * FROM article WHERE ordernumber = :ordernumber", ["ordernumber" => $ordernumber]);
-        return $this->getArticleDetails($articleArr[0]);
+        return $res;
     }
 
     public function getArticleList($catUrl)
@@ -120,6 +131,10 @@ class ArticleStore extends BaseStore
         $database = $this->database;
         $categoryStore = $this->categoryStore;
         $categoryIds = $categoryStore->getCategoryIdList($catUrl);
-        return $database->queryAssoc("SELECT * FROM article WHERE category_id IN ($categoryIds)");
+        $result = $database->queryAssoc("SELECT * FROM article WHERE category_id IN ($categoryIds)");
+        for ($i = 0; $i < count($result); $i++) {
+            $result[$i]["image"] = $this->imageStore->getById($result[$i]["image_id"]);
+        }
+        return $result;
     }
 }

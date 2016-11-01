@@ -1,18 +1,11 @@
 /* This is a CSS comment */
 body, html {
-    width: 90%;
+    width: 80%;
     height: 100%;
     margin: 0 auto 0 auto;
     padding: 0;
     font-family: sans-serif;
     color: black;
-}
-
-body {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    -ms-flex-direction: column;
 }
 
 a {
@@ -29,6 +22,15 @@ a:hover, a:active, a:visited:hover {
     color: orange;
 }
 
+.container {
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    -moz-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    height: 100%;
+}
+
 header {
     padding: 10px;
     background-color: #eee;
@@ -40,45 +42,34 @@ header {
 #logo {
     height: 100%;
     float: left;
-    display: flex;
-    flex-direction: row;
-    -ms-flex-direction: row;
-    justify-content: center;
 }
 
 #search-panel {
     height: 100%;
     float: right;
-    display: flex;
-    flex-direction: row;
-    -ms-flex-direction: row;
-    justify-content: center;
 }
 
 #user-info {
     height: 100%;
     float: right;
-    display: flex;
-    flex-direction: row;
-    -ms-flex-direction: row;
-    justify-content: center;
 }
 
-nav {
+.navigation {
+    display: flex;
     border: solid #aaa;
     border-width: 0 1px 1px 1px;
     background-color: #eee;
-    z-index: 10000;
 }
 
-nav > ul {
+.navigation > ul {
     padding: 0;
     margin: 0;
     list-style: none;
     position: relative;
+    z-index: 1000;
 }
 
-nav > ul ul {
+.navigation > ul ul {
     position: absolute;
     left: 0;
     top: 100%;
@@ -88,58 +79,81 @@ nav > ul ul {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-nav > ul li {
+.navigation > ul li {
     display: inline;
     float: left;
     position: relative;
     background-color: #eee;
 }
 
-nav > ul li:hover > ul {
+.navigation > ul li:hover > ul {
     display: block;
 }
 
-nav > ul ul > li > ul {
+.navigation > ul ul > li > ul {
     top: 0;
     left: 100%;
 }
 
-nav > ul a {
+.navigation > ul a {
     text-decoration: none;
     padding: 10px;
     float: left;
     min-width: 100px;
 }
 
-nav > ul a:hover {
+.navigation > ul a:hover {
     background: #cccccc;
     color: #333333;
 }
 
-nav > ul li:hover {
+.navigation > ul li:hover {
     background-color: #ddd;
 }
 
+.breadcrumbs {
+    border: solid #aaa;
+    border-width: 0 1px 1px 1px;
+    overflow: auto;
+}
+
 main {
-    flex: 1;
+    -webkit-flex: 1 100%;
+    -moz-flex: 1 100%;
+    -ms-flex: 1 100%;
+    flex: 1 100%;
+    display: flex;
+    flex-flow: row nowrap;
     border: solid #aaa;
     border-width: 0 1px 0 1px;
 }
 
 section {
-    float: left;
+    -webkit-flex: 1 100%;
+    -moz-flex: 1 100%;
+    -ms-flex: 1 100%;
+    -o-flex: 1 100%;
+    flex: 1 100%;
     padding: 10px;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    -moz-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
 }
 
-section.breadcrumbs {
-    float: none;
-    border: solid #aaa;
-    border-width: 0 0 1px 0;
+section > * {
+    -webkit-flex: 0 0;
+    -moz-flex: 0 0;
+    -ms-flex: 0 0;
+    flex: 0 0;
+}
+
+section h1 {
+    margin-top: 0;
 }
 
 aside {
-    float: left;
-    width: 20%;
     max-width: 150px;
     padding: 10px;
 }
@@ -158,4 +172,82 @@ input[type=text] {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+}
+
+/* article */
+.article-top {
+}
+
+.article-image {
+    float: left;
+    max-width: 20%;
+    min-width: 150px;
+}
+
+.article-image img {
+    width: 100%;
+}
+
+.article-overview {
+    float: right;
+    width: 50%;
+    max-width: 80%;
+}
+
+.article-price {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.article-pseudoprice {
+    color: red;
+    font-size: 2em;
+    text-decoration: line-through;
+}
+
+.article-name {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.article-description {
+    font-size: 1.5em;
+}
+
+.article-details {
+}
+
+.article-description-long {
+}
+
+/* category */
+.article-list {
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.article-list-item-border {
+    position: relative;
+    float: left;
+    width: 10em;
+    height: 10em;
+    margin: 0 5px 5px 0;
+    border: 1px solid #dddddd;
+}
+
+.article-list-item-border a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.article-list-item {
+    margin: 1em;
+}
+
+.article-list-item img {
+    max-width: 90%;
+    max-height: 90%;
 }

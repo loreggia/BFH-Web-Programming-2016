@@ -21,7 +21,7 @@ function createTree($rows, $parentId, $idColumn, $parentIdColumn)
     return $children;
 }
 
-function createLink($name, $action, $params = null)
+function beginLink($action, $params = null)
 {
     global $rootLink;
     $paramString = "";
@@ -34,5 +34,33 @@ function createLink($name, $action, $params = null)
 
     }
     $url = $rootLink . "index.php?action=" . $action . $paramString;
-    return '<a href="' . $url . '">' . $name . '</a>';
+    return '<a href="' . $url . '">';
+}
+
+function createLink($name, $action, $params = null)
+{
+    return beginLink($action, $params) . $name . '</a>';
+}
+
+function saveUploadedImage(ImageStore $imageStore, $fileInputName = "file", $altInputName = "alt")
+{
+    if (!isset($_POST[$altInputName]) || !isset($_FILES[$fileInputName])) {
+        return false;
+    }
+
+    $file = $_FILES[$fileInputName];
+    $targetDir = "resources/images/uploaded";
+    $fileInfo = pathinfo($file["name"]);
+    $targetFileName = $targetDir . $fileInfo["basename"];
+
+    $i = 2;
+    while (file_exists($targetFileName)) {
+        $targetFileName = $targetDir . $fileInfo["filename"] . $i . $fileInfo["extension"];
+    }
+
+    if (move_uploaded_file($file["tmp_name"], $targetFileName)) {
+        return $imageStore->saveImage($targetFileName, $_POST[$altInputName]);
+    } else {
+        return false;
+    }
 }

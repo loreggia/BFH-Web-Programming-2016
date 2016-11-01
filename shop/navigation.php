@@ -30,4 +30,20 @@ function echoNavigationItems($categoryTree, $depth)
     echo "</ul>";
 }
 
-echoNavigationItems($categoryTree, 0);
+?>
+
+    <section class="navigation">
+        <?php echoNavigationItems($categoryTree, 0); ?>
+    </section>
+
+<?php
+// todo
+$breadCrumbs = "Breadcrumbs > asdf";
+
+if (!empty($breadCrumbs)) {
+    ?>
+    <section class="breadcrumbs">
+        <?= $breadCrumbs ?>
+    </section>
+    <?php
+}

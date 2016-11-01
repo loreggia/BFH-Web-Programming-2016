@@ -3,18 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2016 at 02:36 AM
+-- Generation Time: Nov 01, 2016 at 09:04 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `shop`
@@ -53,7 +47,7 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`article_id`, `category_id`, `manufacturer_id`, `ordernumber`, `name_de`, `name_en`, `name_fr`, `price`, `pseudoprice`, `descrtiption_de`, `description_en`, `description_fr`, `description_long_de`, `description_long_en`, `description_long_fr`, `image_id`) VALUES
-(11, 3, 2, 'a001', 'Testartikel 1', 'Testarticle 1', 'Article de teste 1', 12, 24, 'Vorschau', 'Preview', 'Prevue', NULL, NULL, NULL, NULL),
+(11, 3, 2, 'a001', 'Testartikel 1', 'Testarticle 1', 'Article de teste 1', 12, 24, 'Vorschau', 'Preview', 'Prevue', NULL, NULL, NULL, 1),
 (12, 5, 1, 'a002', 'Testartikel 2', 'Testarticle 2', 'Article de teste 2', 16, NULL, 'Hat Sets', 'Has sets', 'Il a sets', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -172,6 +166,13 @@ CREATE TABLE `image` (
   `url` text NOT NULL,
   `alt` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `image`
+--
+
+INSERT INTO `image` (`image_id`, `url`, `alt`) VALUES
+(1, 'resources/images/uploaded/computer.png', 'Computer');
 
 -- --------------------------------------------------------
 
@@ -451,7 +452,7 @@ ALTER TABLE `configuration`
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `manufacturer`
 --
@@ -512,7 +513,3 @@ ALTER TABLE `category`
 ALTER TABLE `option_article`
   ADD CONSTRAINT `option_article_article_article_id_fk` FOREIGN KEY (`article_id`) REFERENCES `article` (`article_id`),
   ADD CONSTRAINT `option_article_option_option_id_fk` FOREIGN KEY (`option_id`) REFERENCES `option` (`option_id`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

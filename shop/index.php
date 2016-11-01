@@ -17,8 +17,11 @@ $configurationStore = new ConfigurationStore($database);
 require_once "classes/CategoryStore.php";
 $categoryStore = new CategoryStore($database);
 
+require_once "classes/ImageStore.php";
+$imageStore = new ImageStore($database);
+
 require_once "classes/ArticleStore.php";
-$articleStore = new ArticleStore($database, $categoryStore);
+$articleStore = new ArticleStore($database, $categoryStore, $imageStore);
 
 require_once "translation.php";
 
@@ -70,9 +73,6 @@ if (isset($pageTitle) && $pageTitle) {
     $siteTitle .= " - " . $pageTitle;
 }
 
-// todo
-$breadCrumbs = "";
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -83,26 +83,22 @@ $breadCrumbs = "";
     <link rel="stylesheet" type="text/css" media="screen" href="resources/css.css"/>
 </head>
 <body>
-<header>
-    <?php require_once "header.php"; ?>
-</header>
+<div class="container">
+    <header>
+        <?php require_once "header.php"; ?>
+    </header>
 
-<nav>
-    <?php require_once "navigation.php"; ?>
-</nav>
+    <nav>
+        <?php require_once "navigation.php"; ?>
+    </nav>
 
-<main>
-    <?php if (!empty($breadCrumbs)) { ?>
-        <section class="breadcrumbs">
-            <?= $breadCrumbs ?>
-        </section>
-    <?php } ?>
+    <main>
+        <?= $body ?>
+    </main>
 
-    <?= $body ?>
-</main>
-
-<footer>
-    <?php require_once "footer.php"; ?>
-</footer>
+    <footer>
+        <?php require_once "footer.php"; ?>
+    </footer>
+</div>
 </body>
 </html>

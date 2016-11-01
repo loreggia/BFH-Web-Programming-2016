@@ -4,8 +4,8 @@ abstract class BaseStore
 {
     protected $database;
 
-    public function __construct(Database $dataB)
+    public function __construct(Database $database)
     {
-        $this->database = $dataB;
+        $this->database = $database;
     }
 }

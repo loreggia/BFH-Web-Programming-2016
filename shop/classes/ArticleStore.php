@@ -15,7 +15,6 @@ class ArticleStore extends BaseStore
     public function __construct(Database $database, CategoryStore $categoryStore, ImageStore $imageStore)
     {
         parent::__construct($database);
-        $this->database = $database;
         $this->categoryStore = $categoryStore;
         $this->imageStore = $imageStore;
     }

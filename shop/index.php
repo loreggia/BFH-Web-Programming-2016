@@ -1,29 +1,5 @@
 <?php
-$rootLink = "/shop/";
-
-require_once "configuration.php";
-$configuration = new Configuration();
-
-require_once "utilities.php";
-
-require_once "classes/Database.php";
-$database = new Database($configuration);
-
-require_once "classes/BaseStore.php";
-
-require_once "classes/ConfigurationStore.php";
-$configurationStore = new ConfigurationStore($database);
-
-require_once "classes/CategoryStore.php";
-$categoryStore = new CategoryStore($database);
-
-require_once "classes/ImageStore.php";
-$imageStore = new ImageStore($database);
-
-require_once "classes/ArticleStore.php";
-$articleStore = new ArticleStore($database, $categoryStore, $imageStore);
-
-require_once "translation.php";
+require_once "requireOnces.php";
 
 // body
 $fileName = null;

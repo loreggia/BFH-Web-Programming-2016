@@ -59,6 +59,8 @@ header {
     border: solid #aaa;
     border-width: 0 1px 1px 1px;
     background-color: #eee;
+    margin: 0;
+    padding: 0;
 }
 
 .navigation > ul {
@@ -165,13 +167,17 @@ footer {
     border-width: 1px 1px 0 1px;
 }
 
-input[type=text] {
-    padding: 5px;
-    margin: 5px;
+input {
+    padding: 2px;
+    margin: 5px 5px 5px 0;
     border-color: #b4b4b4;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+input.count {
+    width: 30px;
 }
 
 /* article */
@@ -212,6 +218,9 @@ input[type=text] {
 
 .article-description {
     font-size: 1.5em;
+}
+
+.article-cart {
 }
 
 .article-details {

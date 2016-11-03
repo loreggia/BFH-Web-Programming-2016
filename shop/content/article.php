@@ -37,6 +37,13 @@ $category = $categoryStore->getCategoryOfArticle($article["article_id"]);
             <p>
                 <span class="article-description"><?= getRowText($article, "description") ?></span>
             </p>
+            <p>
+                <form name="cart" id="cart" action="process/addtocart.php" method="POST">
+                    <input type="hidden" name="article_id" value="<?= $article["article_id"] ?>" />
+
+                    <span class="article-cart"><input type="submit" value="Add" /> <input class="count" type="number" name="count" value="1" /> to your cart</span>
+                </form>
+            </p>
         </div>
     </div>
     <div class="article-details">

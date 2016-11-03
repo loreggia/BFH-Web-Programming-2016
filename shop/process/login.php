@@ -9,7 +9,7 @@ if ($loginUser == "admin") {
 elseif ($loginUser == "login") {
 	$userArray = array(
 					"email" => $_POST['email'],
-					"password" => md5($_POST['password'])
+					"password" => $_POST['password']
 				);
 	print_r($userStore->getLogin($userArray));
 }

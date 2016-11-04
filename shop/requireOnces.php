@@ -1,4 +1,5 @@
 <?php
+session_start();
 $rootLink = "/shop/";
 
 require_once "configuration.php";

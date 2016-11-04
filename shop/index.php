@@ -7,6 +7,7 @@ $action = "home";
 
 if (isset($_GET["action"])) {
     $action = $_GET["action"];
+	$pageTitle = getLangText($action);
 }
 
 switch ($action) {
@@ -15,24 +16,24 @@ switch ($action) {
         break;
 
     case "article":
-        $fileName = "article.php";
+        $fileName = $action.".php";
+		if (isset($_GET["ordernumber"])) {
+			$pageTitle = $articleStore->getArticleTitle($_GET["ordernumber"]);
+		}
         break;
 
+	case "account":
     case "category":
-        $fileName = "category.php";
-        break;
-
     case "login":
-        $fileName = "login.php";
-        break;
-
+	case "logout":
     case "search":
-        $fileName = "search.php";
+        $fileName = $action.".php";
         break;
 
     case "home":
     default:
         $fileName = "home.php";
+		$pageTitle = getLangText("home");
         break;
 }
 

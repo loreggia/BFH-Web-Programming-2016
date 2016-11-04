@@ -1,11 +1,12 @@
 <?php
 
 $LANG["en"] = [
-    "article" => "Artikel",
-    "category" => "Kategorie",
-    "manufacturer" => "Hersteller",
-    "login" => "Anmelden",
-    "logout" => "Abmelden",
-    "search" => "Suchen",
+	"account" => "Account",
+    "article" => "Article",
+    "category" => "Category",
+    "manufacturer" => "Manufacturer",
+    "login" => "Login",
+    "logout" => "Logout",
+    "search" => "Search",
     "home" => "Home"
 ];

@@ -9,9 +9,21 @@ if ($loginUser == "admin") {
 elseif ($loginUser == "login") {
 	$userArray = array(
 					"email" => $_POST['email'],
-					"password" => $_POST['password']
+					"password" => md5($_POST['password'])
 				);
-	print_r($userStore->getLogin($userArray));
+	$result = $userStore->getLogin($userArray);
+	
+	if($result){
+		$_SESSION['loggedIn'] = true;
+		$_SESSION['user'] = $result;
+		header("Location: ./../index.php?action=account");
+		die();
+	}
+	else{
+		$_SESSION['loggedIn'] = false;
+		header("Location: ./../index.php?action=login");
+		die();
+	}
 }
 elseif ($loginUser == "create") {
 	$newsletter = "0";
@@ -27,7 +39,19 @@ elseif ($loginUser == "create") {
 					"encoder" => "md5",
 					"newsletter" => $newsletter
 				);
-	print_r($userStore->createUser($userArray));
+	$result = $userStore->createUser($userArray);
+	
+	if($result){
+		$_SESSION['loggedIn'] = true;
+		$_SESSION['user'] = $result;
+		header("Location: ./../index.php?action=account");
+		die();
+	}
+	else{
+		$_SESSION['loggedIn'] = false;
+		header("Location: ./../index.php?action=login");
+		die();
+	}
 }
 else {
     header("Location: ./../");

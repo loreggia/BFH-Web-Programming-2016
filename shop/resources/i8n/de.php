@@ -1,6 +1,7 @@
 <?php
 
 $LANG["de"] = [
+	"account" => "Benutzerkonto",
     "article" => "Artikel",
     "category" => "Kategorie",
     "manufacturer" => "Hersteller",

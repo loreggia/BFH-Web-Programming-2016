@@ -1,7 +1,3 @@
-<?php
-$pageTitle = getLangText("home");
-?>
-
 <aside>home aside</aside>
 
 <section>

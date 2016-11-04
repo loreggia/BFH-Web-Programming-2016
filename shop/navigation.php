@@ -44,6 +44,10 @@ if (!empty($breadCrumbs)) {
     ?>
     <section class="breadcrumbs">
         <?= $breadCrumbs ?>
+		<?php 
+			echo "<br />Session-Variablen: ";
+			print_r($_SESSION);
+		?>
     </section>
     <?php
 }

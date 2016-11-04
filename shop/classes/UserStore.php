@@ -24,11 +24,11 @@ class UserStore extends BaseStore
 	
 	public function getLogin($user)
     {
-        $result = $this->database->queryAssoc("SELECT * FROM user WHERE email LIKE :email AND password LIKE :password", ["email" => $user["email"], "password" => md5($user["password"])]);
+        $result = $this->database->queryAssoc("SELECT company, department, firstname, lastname, salutation, email, payment_id, newsletter FROM user WHERE email LIKE :email AND password LIKE :password", ["email" => $user["email"], "password" => $user["password"]]);
         if (count($result) > 0) {
-            return "Login mit folgendem User: ".$result[0];
+            return $result[0];
         }
-        return "Der Benutzername mit dem gegebenen Passwort konnte nicht gefunden werden"; //false
+        return false;
     }
 	
 	public function userExists($user)
@@ -49,13 +49,13 @@ class UserStore extends BaseStore
 			if ($result) {
 				$userId = $this->database->getLastInsertId();
 				$this->addressStore->createUserAddresses($user, $userId);
-				return "User wurde angelegt mit folgender ID: ".$userId;
+				return $this->getLogin($user);
 			} else {
-				return "User konnte leider nicht gespeichert werden"; //false
+				return false;
 			}
 		}
 		else{
-			return "User existiert bereits!"; //false
+			return false;
 		}
     }
 }

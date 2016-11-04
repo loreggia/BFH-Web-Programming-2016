@@ -3,7 +3,14 @@
 </div>
 
 <div id="user-info">
-    <?php echo createLink(getLangText("login"), "login"); ?>
+    <?php
+		if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]){
+			echo createLink(getLangText("account")." (".$_SESSION["user"]["email"].")", "account");
+		}
+		else{
+			echo createLink(getLangText("account"), "login");
+		}
+	?>
 </div>
 
 <div id="search-panel">

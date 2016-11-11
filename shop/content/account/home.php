@@ -7,7 +7,9 @@
 </div>
 <div>
 <h3>Gewählte Zahlungsart</h3>
-<?= $_SESSION["user"]["payment_id"] ?> (momentan "nur" Zahlungs-ID)<br />
+<?php $payment = $paymentStore->getById($_SESSION["user"]["payment_id"]);
+ ?>
+<?= $payment["name_de"] ?><br />
 <?=createLink("Zahlungsart ändern", "account&mode=payment"); ?>
 </div>
 <div>

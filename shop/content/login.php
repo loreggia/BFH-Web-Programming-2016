@@ -5,15 +5,17 @@
 	<form method="post" action="./process/login.php">
 		<input type="hidden" name="loginUser" value="login"/>
 		<ul>
-			<li>
+			<li id="li-login-email">
 				<label for="login-email">E-Mail</label>
 				<input type="text" name="email" id="login-email" value="" />
+				<mark>Bitte E-mail angeben</mark>
 			</li>
-			<li>
+			<li id="li-login-password">
 				<label for="login-password">Passwort</label>
 				<input type="password" name="password" id="login-password" value="" />
+				<mark>Bitte Passwort angeben</mark>
 			</li>
-			<li>
+			<li id="li-login-submit">
 				<input type="submit" value="Senden" />
 			</li>
 		</ul>
@@ -38,27 +40,31 @@
 				<label for="department">Abteilung</label>
 				<input type="text" name="department" id="department" value="" />
 			</li>
-			<li>
+			<li id="li-name">
 				<label for="name">Vorname*</label>
 				<input type="text" name="name" id="name" value="" />
+				<mark>Bitte Vorname angeben</mark>
 			</li>
-			<li>
+			<li id="li-lastname">
 				<label for="lastname">Nachname*</label>
 				<input type="text" name="lastname" id="lastname" value="" />
+				<mark>Bitte Nachname angeben</mark>
 			</li>
-			<li>
+			<li id="li-email">
 				<label for="email">E-Mail*</label>
 				<input type="text" name="email" id="email" value="" />
+				<mark>Bitte E-Mail angeben</mark>
 			</li>
-			<li>
+			<li id="li-password">
 				<label for="password">Passwort*</label>
 				<input type="password" name="password" id="password" value="" />
+				<mark>Bitte Passwort angeben</mark>
 			</li>
 			<li>
 				<label>Newsletter abonnieren</label>
 				<input type="checkbox" name="newsletter" id="newsletter" value="1" /><label for="newsletter">Ja, gerne</label>
 			</li>
-			<li>
+			<li id="li-submit">
 				<input type="submit" value="Senden" />
 			</li>
 		</ul>

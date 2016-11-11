@@ -21,7 +21,7 @@ elseif ($loginUser == "login") {
 	}
 	else{
 		$_SESSION['loggedIn'] = false;
-		header("Location: ./../index.php?action=login");
+		header("Location: " . $_SERVER['HTTP_REFERER']);
 		die();
 	}
 }
@@ -49,7 +49,7 @@ elseif ($loginUser == "create") {
 	}
 	else{
 		$_SESSION['loggedIn'] = false;
-		header("Location: ./../index.php?action=login");
+		header("Location: " . $_SERVER['HTTP_REFERER']);
 		die();
 	}
 }

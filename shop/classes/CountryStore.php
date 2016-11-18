@@ -15,4 +15,12 @@ class CountryStore extends BaseStore
         }
         return false;
     }
+	
+	public function getCountries(){
+		$result = $this->database->queryAssoc("SELECT * FROM country");
+        if (count($result) > 0) {
+            return $result;
+        }
+        return false;
+    }
 }

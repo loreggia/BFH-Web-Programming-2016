@@ -22,6 +22,15 @@ class UserStore extends BaseStore
         return false;
     }
 	
+	public function getUserId($email)
+    {
+        $result = $this->database->queryAssoc("SELECT user_id FROM user WHERE email = :email", ["email" => $email]);
+        if (count($result) > 0) {
+            return $result[0]["user_id"];
+        }
+        return false;
+    }
+	
 	public function getLogin($user)
     {
         $result = $this->database->queryAssoc("SELECT company, department, firstname, lastname, salutation, email, payment_id, newsletter FROM user WHERE email LIKE :email AND password LIKE :password", ["email" => $user["email"], "password" => $user["password"]]);

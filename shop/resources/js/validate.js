@@ -52,7 +52,7 @@ $(function(){
 		submit.prop('disabled', (noName||noLastName||noEmail||noPassword));
 	});
 	
-	// ---- Account-Bereich
+	// ---- Personal-Bereich
 	
 	var userSubmit = $('#user-submit input');
 	userSubmit.prop('disabled',true);
@@ -112,5 +112,83 @@ $(function(){
 		if(noPwPassword) $('#pw-password mark').fadeIn(1000);
 		else $('#pw-password mark').fadeOut(1000);
 		passwordSubmit.prop('disabled', (noPwOld||noPwPassword));
+	});
+	
+	// ---- Address-Bereich
+	
+		var billingSubmit = $('#billing-submit input');
+	billingSubmit.prop('disabled',true);
+	
+	$('#billing-name input').focusout(function(){
+		noBillingName = !this.value;
+		if(noBillingName) $('#billing-name mark').fadeIn(1000);
+		else $('#billing-name mark').fadeOut(1000);
+		billingSubmit.prop('disabled', (noBillingName||noBillingLastname||noBillingStreet||noBillingZip||noBillingCity));
+	});
+	
+	$('#billing-lastname input').focusout(function(){
+		noBillingLastname = !this.value;
+		if(noBillingLastname) $('#billing-lastname mark').fadeIn(1000);
+		else $('#billing-lastname mark').fadeOut(1000);
+		billingSubmit.prop('disabled', (noBillingName||noBillingLastname||noBillingStreet||noBillingZip||noBillingCity));
+	});
+	
+	$('#billing-street input').focusout(function(){
+		noBillingStreet = !this.value;
+		if(noBillingStreet) $('#billing-street mark').fadeIn(1000);
+		else $('#billing-street mark').fadeOut(1000);
+		billingSubmit.prop('disabled', (noBillingName||noBillingLastname||noBillingStreet||noBillingZip||noBillingCity));
+	});
+	
+	$('#billing-zip input').focusout(function(){
+		noBillingZip = !this.value;
+		if(noBillingZip) $('#billing-zip mark').fadeIn(1000);
+		else $('#billing-zip mark').fadeOut(1000);
+		billingSubmit.prop('disabled', (noBillingName||noBillingLastname||noBillingStreet||noBillingZip||noBillingCity));
+	});
+	
+	$('#billing-city input').focusout(function(){
+		noBillingCity = !this.value;
+		if(noBillingCity) $('#billing-city mark').fadeIn(1000);
+		else $('#billing-city mark').fadeOut(1000);
+		billingSubmit.prop('disabled', (noBillingName||noBillingLastname||noBillingStreet||noBillingZip||noBillingCity));
+	});
+	
+		var shippingSubmit = $('#shipping-submit input');
+	shippingSubmit.prop('disabled',true);
+	
+	$('#shipping-name input').focusout(function(){
+		noShippingName = !this.value;
+		if(noShippingName) $('#shipping-name mark').fadeIn(1000);
+		else $('#shipping-name mark').fadeOut(1000);
+		shippingSubmit.prop('disabled', (noShippingName||noShippingLastname||noShippingStreet||noShippingZip||noShippingCity));
+	});
+	
+	$('#shipping-lastname input').focusout(function(){
+		noShippingLastname = !this.value;
+		if(noShippingLastname) $('#shipping-lastname mark').fadeIn(1000);
+		else $('#shipping-lastname mark').fadeOut(1000);
+		shippingSubmit.prop('disabled', (noShippingName||noShippingLastname||noShippingStreet||noShippingZip||noShippingCity));
+	});
+	
+	$('#shipping-street input').focusout(function(){
+		noShippingStreet = !this.value;
+		if(noShippingStreet) $('#shipping-street mark').fadeIn(1000);
+		else $('#shipping-street mark').fadeOut(1000);
+		shippingSubmit.prop('disabled', (noShippingName||noShippingLastname||noShippingStreet||noShippingZip||noShippingCity));
+	});
+	
+	$('#shipping-zip input').focusout(function(){
+		noShippingZip = !this.value;
+		if(noShippingZip) $('#shipping-zip mark').fadeIn(1000);
+		else $('#shipping-zip mark').fadeOut(1000);
+		shippingSubmit.prop('disabled', (noShippingName||noShippingLastname||noShippingStreet||noShippingZip||noShippingCity));
+	});
+	
+	$('#shipping-city input').focusout(function(){
+		noShippingCity = !this.value;
+		if(noShippingCity) $('#shipping-city mark').fadeIn(1000);
+		else $('#shipping-city mark').fadeOut(1000);
+		shippingSubmit.prop('disabled', (noShippingName||noShippingLastname||noShippingStreet||noShippingZip||noShippingCity));
 	});
 });

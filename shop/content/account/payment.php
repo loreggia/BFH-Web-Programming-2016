@@ -10,8 +10,7 @@ Zahlungsart ändern<br />
 	<ul>
 		<?php
 			foreach($payments as $payment){
-				if($payment["payment_id"]==$_SESSION["user"]["payment_id"]){$checked = " checked";}
-				else{$checked = "";}
+				$checked = ($payment["payment_id"]==$_SESSION["user"]["payment_id"]) ? " checked" : "";
 				echo('<li>
 					<input type="radio" name="payment" value="'.$payment["payment_id"].'" id="payment'.$payment["payment_id"].'"'.$checked.' />
 					<label for="payment'.$payment["payment_id"].'">'.$payment["name_de"].'</label>

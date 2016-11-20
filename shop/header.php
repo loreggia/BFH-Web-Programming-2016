@@ -2,6 +2,24 @@
     <?php echo createLink("<img src=\"resources/images/logo.png\"/>", "home"); ?>
 </div>
 
+<div id="language-selector">
+    <?php
+		if(!isset($_SESSION["lang"])){
+			$lang = "de";
+		}
+		else{
+			$lang = $_SESSION["lang"];
+		}
+	?>
+	<form name="language" action="/shop/process/lang.php" method="post">
+        <select name="lang" id="lang" onchange="this.form.submit()">
+			<option value="de" <?php if($lang == "de") echo"selected"; ?>><?= getLangText("lang_de") ?></option>
+			<option value="en" <?php if($lang == "en") echo"selected"; ?>><?= getLangText("lang_en") ?></option>
+			<option value="fr" <?php if($lang == "fr") echo"selected"; ?>><?= getLangText("lang_fr") ?></option>
+		</select>
+    </form>
+</div>
+
 <div id="user-info">
     <?php
 		if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]){

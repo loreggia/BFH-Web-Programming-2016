@@ -9,37 +9,37 @@ $isNewsletter = ($user['newsletter'] == 1) ? "checked" : "";
 	<input type="hidden" name="change" value="user"/>
 	<ul>
 		<li>
-			<label for="salutation">Anrede*</label>
+			<label for="salutation"><?= getLangText("salutation")?>*</label>
 			<select name="salutation" id="salutation">
-				<option value="mr" <?=$isMale?>>Herr</option>
-				<option value="ms" <?=$isFemale?>>Frau</option>
+				<option value="mr" <?=$isMale?>><?= getLangText("mr")?></option>
+				<option value="ms" <?=$isFemale?>><?= getLangText("ms")?></option>
 			</select>
 		</li>
 		<li>
-			<label for="company">Firma</label>
+			<label for="company"><?= getLangText("company")?></label>
 			<input type="text" name="company" id="company" value="<?=$user["company"]?>" />
 		</li>
 		<li>
-			<label for="department">Abteilung</label>
+			<label for="department"><?= getLangText("department")?></label>
 			<input type="text" name="department" id="department" value="<?=$user["department"]?>" />
 		</li>
 		<li id="user-name">
-			<label for="name">Vorname*</label>
+			<label for="name"><?= getLangText("firstname")?>*</label>
 			<input type="text" name="name" id="name" value="<?=$user["firstname"]?>" />
-			<mark>Bitte Vorname angeben</mark>
+			<mark><?= pleaseEnter("firstname")?></mark>
 		</li>
 		<li id="user-lastname">
-			<label for="lastname">Nachname*</label>
+			<label for="lastname"><?= getLangText("lastname")?>*</label>
 			<input type="text" name="lastname" id="lastname" value="<?=$user["lastname"]?>" />
-			<mark>Bitte Nachname angeben</mark>
+			<mark><?= pleaseEnter("lastname")?></mark>
 		</li>
 		<li id="user-password">
-			<label for="password">Passwort*</label>
+			<label for="password"><?= getLangText("password")?>*</label>
 			<input type="password" name="password" id="password" value="" />
-			<mark>Bitte Passwort angeben</mark>
+			<mark><?= pleaseEnter("password")?></mark>
 		</li>
 		<li id="user-submit">
-			<input type="submit" value="Senden" />
+			<input type="submit" value="<?= getLangText("send")?>" />
 		</li>
 	</ul>
 </form>
@@ -47,11 +47,11 @@ $isNewsletter = ($user['newsletter'] == 1) ? "checked" : "";
 	<input type="hidden" name="change" value="newsletter"/>
 	<ul>
 		<li id="news-news">
-			<label>Newsletter abonnieren</label>
-			<input type="checkbox" name="newsletter" id="newsletter" value="1" <?=$isNewsletter?> /><label for="newsletter">Ja, gerne</label>
+			<label><?= getLangText("newsletter1")?></label>
+			<input type="checkbox" name="newsletter" id="newsletter" value="1" <?=$isNewsletter?> /><label for="newsletter"><?= getLangText("newsletter2")?></label>
 		</li>
 		<li id="news-submit">
-			<input type="submit" value="Senden" />
+			<input type="submit" value="<?= getLangText("send")?>" />
 		</li>
 	</ul>
 </form>
@@ -59,17 +59,17 @@ $isNewsletter = ($user['newsletter'] == 1) ? "checked" : "";
 	<input type="hidden" name="change" value="email"/>
 	<ul>
 		<li id="mail-email">
-			<label for="email">E-Mail*</label>
+			<label for="email"><?= getLangText("email")?>*</label>
 			<input type="text" name="email" id="email" value="<?=$user["email"]?>" />
-			<mark>Bitte E-Mail angeben</mark>
+			<mark><?= pleaseEnter("email")?></mark>
 		</li>
 		<li id="mail-password">
-			<label for="password">Passwort*</label>
+			<label for="password"><?= getLangText("password")?>*</label>
 			<input type="password" name="password" id="password" value="" />
-			<mark>Bitte Passwort angeben</mark>
+			<mark><?= pleaseEnter("password")?></mark>
 		</li>
 		<li id="mail-submit">
-			<input type="submit" value="Senden" />
+			<input type="submit" value="<?= getLangText("send")?>" />
 		</li>
 	</ul>
 </form>
@@ -77,17 +77,17 @@ $isNewsletter = ($user['newsletter'] == 1) ? "checked" : "";
 	<input type="hidden" name="change" value="password"/>
 	<ul>
 		<li id="pw-passwordOld">
-			<label for="email">Altes Passwort*</label>
+			<label for="email"><?= getLangText("password_old")?>*</label>
 			<input type="password" name="password" id="password" value="" />
-			<mark>Bitte altes Passwort angeben</mark>
+			<mark><?= pleaseEnter("password")?></mark>
 		</li>
 		<li id="pw-password">
-			<label for="password">Neues Passwort*</label>
+			<label for="password"><?= getLangText("password_new")?>*</label>
 			<input type="password" name="password-new" id="password-new" value="" />
-			<mark>Bitte Passwort angeben</mark>
+			<mark><?= pleaseEnter("password")?></mark>
 		</li>
 		<li id="pw-submit">
-			<input type="submit" value="Senden" />
+			<input type="submit" value="<?= getLangText("send")?>" />
 		</li>
 	</ul>
 </form>

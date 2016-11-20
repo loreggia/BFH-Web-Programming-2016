@@ -1,71 +1,71 @@
 <aside>login aside</aside>
 
 <section>
-	<h1>Login bestehender User</h1>
+	<h1><?= getLangText("old_user")?></h1>
 	<form method="post" action="./process/login.php">
 		<input type="hidden" name="loginUser" value="login"/>
 		<ul>
 			<li id="li-login-email">
-				<label for="login-email">E-Mail</label>
+				<label for="login-email"><?= getLangText("email")?></label>
 				<input type="text" name="email" id="login-email" value="" />
-				<mark>Bitte E-mail angeben</mark>
+				<mark><?= pleaseEnter("email")?></mark>
 			</li>
 			<li id="li-login-password">
-				<label for="login-password">Passwort</label>
+				<label for="login-password"><?= getLangText("password")?></label>
 				<input type="password" name="password" id="login-password" value="" />
-				<mark>Bitte Passwort angeben</mark>
+				<mark><?= pleaseEnter("password")?></mark>
 			</li>
 			<li id="li-login-submit">
-				<input type="submit" value="Senden" />
+				<input type="submit" value="<?= getLangText("send")?>" />
 			</li>
 		</ul>
 	</form>
 	<p></p>
-	<h1>Neuer Benutzer</h1>
+	<h1><?= getLangText("new_user")?></h1>
 	<form method="post" action="./process/login.php">
 		<input type="hidden" name="loginUser" value="create"/>
 		<ul>
 			<li>
-				<label for="salutation">Anrede*</label>
+				<label for="salutation"><?= getLangText("salutation")?>*</label>
 				<select name="salutation" id="salutation">
-					<option value="mr">Herr</option>
-					<option value="ms">Frau</option>
+					<option value="mr"><?= getLangText("mr")?></option>
+					<option value="ms"><?= getLangText("ms")?></option>
 				</select>
 			</li>
 			<li>
-				<label for="company">Firma</label>
+				<label for="company"><?= getLangText("company")?></label>
 				<input type="text" name="company" id="company" value="" />
 			</li>
 			<li>
-				<label for="department">Abteilung</label>
+				<label for="department"><?= getLangText("department")?></label>
 				<input type="text" name="department" id="department" value="" />
 			</li>
 			<li id="li-name">
-				<label for="name">Vorname*</label>
+				<label for="name"><?= getLangText("firstname")?>*</label>
 				<input type="text" name="name" id="name" value="" />
-				<mark>Bitte Vorname angeben</mark>
+				<mark><?= pleaseEnter("firstname")?></mark>
 			</li>
 			<li id="li-lastname">
-				<label for="lastname">Nachname*</label>
+				<label for="lastname"><?= getLangText("lastname")?>*</label>
 				<input type="text" name="lastname" id="lastname" value="" />
-				<mark>Bitte Nachname angeben</mark>
+				<mark><?= pleaseEnter("lastname")?></mark>
 			</li>
 			<li id="li-email">
-				<label for="email">E-Mail*</label>
+				<label for="email"><?= getLangText("email")?>*</label>
 				<input type="text" name="email" id="email" value="" />
-				<mark>Bitte E-Mail angeben</mark>
+				<mark><?= pleaseEnter("email")?></mark>
 			</li>
 			<li id="li-password">
-				<label for="password">Passwort*</label>
+				<label for="password"><?= getLangText("password")?>*</label>
 				<input type="password" name="password" id="password" value="" />
-				<mark>Bitte Passwort angeben</mark>
+				<mark><?= pleaseEnter("password")?></mark>
 			</li>
 			<li>
-				<label>Newsletter abonnieren</label>
-				<input type="checkbox" name="newsletter" id="newsletter" value="1" /><label for="newsletter">Ja, gerne</label>
+				<label><?= getLangText("newsletter1")?></label>
+				<input type="checkbox" name="newsletter" id="newsletter" value="1" /><label for="newsletter"><?= getLangText("newsletter2")?></label>
 			</li>
 			<li id="li-submit">
-				<input type="submit" value="Senden" />
+				<input type="submit" value="<?= getLangText("send")?>" />
 			</li>
 		</ul>
 	</form>

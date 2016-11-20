@@ -62,10 +62,16 @@ function getDefaultLanguageCode()
 function getLanguageCode()
 {
     // TODO von DB laden (Konfiguration oder Benutzerprofil)
-    if (isset($_GET["lang"])) {
-        $l = $_GET["lang"];
+    if (isset($_SESSION["lang"])) {
+        $l = $_SESSION["lang"];
     } else {
-        $l = "en";
+		$_SESSION["lang"] = "de";
+        $l = "de";
     }
     return $l;
+}
+
+//Bitte XX eingeben
+function pleaseEnter($key){
+	return getLangText('please_enter1').getLangText($key).getLangText('please_enter2');
 }

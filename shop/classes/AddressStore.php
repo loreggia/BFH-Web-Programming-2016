@@ -26,12 +26,12 @@ class AddressStore extends BaseStore
     {
         //Billing-Address => AddresMode = 0
 		$insertBilling = $this->database->execute("
-		INSERT INTO address (user_id, address_mode, company, department, firstname, lastname, salutation) VALUES (:user_id, :address_mode, :company, :department, :firstname, :lastname, :salutation);",
+		INSERT INTO address (user_id, address_mode, company, department, firstname, lastname, salutation, country_id) VALUES (:user_id, :address_mode, :company, :department, :firstname, :lastname, :salutation, 1);",
 		["user_id" => $userId, "address_mode" => 0, "company" => $user["company"], "department" => $user["department"], "firstname" => $user["firstname"], "lastname" => $user["lastname"], "salutation" => $user["salutation"]]);
 		
 		//Shipping-Address => AddresMode = 1
 		$insertShipping = $this->database->execute("
-		INSERT INTO address (user_id, address_mode, company, department, firstname, lastname, salutation) VALUES (:user_id, :address_mode, :company, :department, :firstname, :lastname, :salutation);",
+		INSERT INTO address (user_id, address_mode, company, department, firstname, lastname, salutation, country_id) VALUES (:user_id, :address_mode, :company, :department, :firstname, :lastname, :salutation, 1);",
 		["user_id" => $userId, "address_mode" => 1, "company" => $user["company"], "department" => $user["department"], "firstname" => $user["firstname"], "lastname" => $user["lastname"], "salutation" => $user["salutation"]]);
 		
 		if ($insertBilling && $insertShipping) {

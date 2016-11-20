@@ -37,11 +37,11 @@
 <aside>
 	<h3>Mein Konto</h3>
 	<ul>
-		<li><?=createLink("Übersicht", "account"); ?></li>
-		<li><?=createLink("Persönliche Daten", "account&mode=personal"); ?></li>
-		<li><?=createLink("Adressen", "account&mode=address"); ?></li>
-		<li><?=createLink("Zahlungsarten", "account&mode=payment"); ?></li>
-		<li><?=createLink("Bestellungen", "account&mode=orders"); ?></li>
+		<li><?=createLink(getLangText("ac_overview"), "account"); ?></li>
+		<li><?=createLink(getLangText("ac_personal"), "account&mode=personal"); ?></li>
+		<li><?=createLink(getLangText("ac_address"), "account&mode=address"); ?></li>
+		<li><?=createLink(getLangText("ac_payment"), "account&mode=payment"); ?></li>
+		<li><?=createLink(getLangText("ac_orders"), "account&mode=orders"); ?></li>
 		<li><?= createLink(getLangText("logout"), "logout"); ?></li>
 	</ul>
 </aside>

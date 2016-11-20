@@ -13,12 +13,12 @@ Zahlungsart ändern<br />
 				$checked = ($payment["payment_id"]==$_SESSION["user"]["payment_id"]) ? " checked" : "";
 				echo('<li>
 					<input type="radio" name="payment" value="'.$payment["payment_id"].'" id="payment'.$payment["payment_id"].'"'.$checked.' />
-					<label for="payment'.$payment["payment_id"].'">'.$payment["name_de"].'</label>
+					<label for="payment'.$payment["payment_id"].'">'.getRowText($payment, "name").'</label>
 				</li>');
 			}
 		?>
 		<li>
-			<input type="submit" value="Speichern" />
+			<input type="submit" value="<?= getLangText("send")?>" />
 		</li>
 	</ul>
 </form>

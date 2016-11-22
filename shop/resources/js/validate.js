@@ -104,14 +104,14 @@ $(function(){
 		noPwOld = !this.value;
 		if(noPwOld) $('#pw-passwordOld mark').fadeIn(1000);
 		else $('#pw-passwordOld mark').fadeOut(1000);
-		passwordSubmit.prop('disabled', (noPwOld||noPwPassword));
+		passwordSubmit.prop('disabled', (noPwOld||noPwNew));
 	});
 	
-	$('#pw-password input').focusout(function(){
-		noPwPassword = !this.value;
-		if(noPwPassword) $('#pw-password mark').fadeIn(1000);
-		else $('#pw-password mark').fadeOut(1000);
-		passwordSubmit.prop('disabled', (noPwOld||noPwPassword));
+	$('#pw-passwordNew input').focusout(function(){
+		noPwNew = !this.value;
+		if(noPwNew) $('#pw-passwordNew mark').fadeIn(1000);
+		else $('#pw-passwordNew mark').fadeOut(1000);
+		passwordSubmit.prop('disabled', (noPwOld||noPwNew));
 	});
 	
 	// ---- Address-Bereich

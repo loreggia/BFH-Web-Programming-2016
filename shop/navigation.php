@@ -8,8 +8,13 @@ function echoNavigationItems($categoryTree, $depth, $cart)
 {
     if ($depth == 0) {
         echo "<ul class='main-navigation'><li>" . createLink(getLangText("home"), "home") . "</li>";
-				//Basket
-	echo "<li class='nav-item nav-item-0 nav-basket'>" . createLink(getLangText("basket"), "basket");
+		//Admin-Account
+		if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]){
+			echo "<li>" . createLink(getLangText("admin"), "admin") . "</li>";
+		}
+		
+		//Basket
+		echo "<li class='nav-item nav-item-0 nav-basket'>" . createLink(getLangText("basket"), "basket");
 		echo "<ul class='nav-category-1'><li class='nav-item nav-item-1'>";
 		echo $cart->generateMiniCart();
 		

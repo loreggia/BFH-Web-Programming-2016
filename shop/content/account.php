@@ -35,7 +35,7 @@
 ?>
 
 <aside>
-	<h3>Mein Konto</h3>
+	<h3><?=getLangText("ac_account")?></h3>
 	<ul>
 		<li><?=createLink(getLangText("ac_overview"), "account"); ?></li>
 		<li><?=createLink(getLangText("ac_personal"), "account&mode=personal"); ?></li>

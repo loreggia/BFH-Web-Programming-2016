@@ -11,10 +11,6 @@ if (isset($_GET["action"])) {
 }
 
 switch ($action) {
-    case "admin":
-        $fileName = "admin/admin.php";
-        break;
-
     case "article":
         $fileName = $action.".php";
 		if (isset($_GET["ordernumber"])) {
@@ -23,6 +19,7 @@ switch ($action) {
         break;
 
 	case "account":
+	case "admin":
     case "category":
     case "login":
 	case "logout":

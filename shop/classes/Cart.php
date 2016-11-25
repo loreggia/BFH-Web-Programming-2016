@@ -40,7 +40,7 @@ class Cart {
 	
 	public function generateMiniCart(){
 		$this->checkCart();
-		$result = "";
+		$result = "<div class='nav-basket-content'>";
 		$total = 0;
 		foreach($_SESSION["cart"] as $key => $item){
 			$currentArticle = $this->articleStore->getArticle($key);
@@ -48,7 +48,13 @@ class Cart {
 			$total += $subtotal;
 			$result .= beginLink("article", ["ordernumber" => $currentArticle["ordernumber"]]).getRowText($currentArticle, "name")."</a>".$currentArticle['price'].", $item, $subtotal<br />";
 		}
-		$result .= "<br /><br />Total: $total";
-		return "<div class='nav-basket-content'>$result</div>";
+		
+		if($total != 0){
+			$result .= "<br /><br />Total: $total";
+		}
+		else{
+			$result .= getLangText("noArticlesCart");
+		}
+		return "$result</div>";
 	}
 }

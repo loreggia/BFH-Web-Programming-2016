@@ -50,5 +50,12 @@ $LANG["fr"] = [
 	"newsletter1" => "Register newsletter_trToFr",
 	"newsletter2" => "Yes, please_trToFr",
 	"addtocart1" => "Add_trToFr",
-	"addtocart2" => "to you cart_trToFr"
+	"addtocart2" => "to you cart_trToFr",
+	"adm_administration" => "Administration_trToFr",
+	"adm_overview" => "Overview_trToFr",
+	"adm_user" => "User_trToFr",
+	"adm_article" => "Article_trToFr",
+	"adm_manufracturer" => "Manufracturer_trToFr",
+	"adm_category" => "Category_trToFr",
+	"adm_orders" => "Orders_trToFr"
 ];

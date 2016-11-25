@@ -39,11 +39,9 @@ $userStore = new UserStore($database, $addressStore);
 require_once "translation.php";
 
 require_once "classes/Cart.php";
+$cart = new Cart($articleStore);
 
 require_once "classes/Form.php";
 
 session_start();
 $rootLink = "/shop/";
-
-if (!isset($_SESSION["cart"])) $_SESSION["cart"] = new Cart();
-$cart = $_SESSION["cart"];

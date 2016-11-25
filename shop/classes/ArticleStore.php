@@ -22,7 +22,6 @@ class ArticleStore extends BaseStore
     /*
      * Ladet einen Artikel inkl. attributes und options
      */
-
     public function getArticle($ordernumber)
     {
         $articleArr = $this->database->queryAssoc("SELECT * FROM article WHERE ordernumber = :ordernumber", ["ordernumber" => $ordernumber]);

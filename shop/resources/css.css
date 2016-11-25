@@ -113,6 +113,21 @@ header {
     background-color: #ddd;
 }
 
+.nav-basket {
+	float: right !important;
+}
+
+.nav-basket-content {
+	width:100%;
+	min-width: 100px;
+	padding: 10px;
+}
+
+.nav-basket-content > a {
+	clear:both;
+	padding: 0px !important;
+}
+
 .breadcrumbs {
     border: solid #aaa;
     border-width: 0 1px 1px 1px;

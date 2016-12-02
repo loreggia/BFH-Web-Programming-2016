@@ -16,11 +16,13 @@ elseif ($loginUser == "login") {
 	if($result){
 		$_SESSION['loggedIn'] = true;
 		$_SESSION['user'] = $result;
+		$_SESSION['isAdmin'] = $result['admin'];
 		header("Location: ./../index.php?action=account");
 		die();
 	}
 	else{
 		$_SESSION['loggedIn'] = false;
+		$_SESSION['isAdmin'] = false;
 		header("Location: " . $_SERVER['HTTP_REFERER']);
 		die();
 	}

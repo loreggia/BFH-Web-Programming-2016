@@ -2,6 +2,7 @@
 
 $LANG["en"] = [
 	"account" => "Account",
+	"admin" => "Administration",
     "article" => "Article",
     "category" => "Category",
     "manufacturer" => "Manufacturer",
@@ -54,6 +55,8 @@ $LANG["en"] = [
 	"newsletter2" => "Yes, please",
 	"addtocart1" => "Add",
 	"addtocart2" => "to you cart",
+	"basket" => "Basket",
+	"noArticlesCart" => "No article in your cart",
 	"adm_administration" => "Administration",
 	"adm_overview" => "Overview",
 	"adm_user" => "User",

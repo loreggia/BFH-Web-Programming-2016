@@ -1,9 +1,11 @@
 <?php
-	if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]){
-	}
-	else{
-		$_SESSION['loggedIn'] = false;
+	if(!(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"])){
 		header("Location: ./index.php?action=login");
+		die();
+	}
+	
+	if(!(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"])){
+		header("Location: ./index.php?action=home");
 		die();
 	}
 	
@@ -17,7 +19,7 @@
 		case "article":
 		case "manufracturer":
 		case "category":
-		case "orers":
+		case "orders":
 			$accountFileName = $mode.".php";
 			break;
 		case "home":

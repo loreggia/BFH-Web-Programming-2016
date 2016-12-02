@@ -33,7 +33,7 @@ class UserStore extends BaseStore
 	
 	public function getLogin($user)
     {
-        $result = $this->database->queryAssoc("SELECT company, department, firstname, lastname, salutation, email, payment_id, newsletter FROM user WHERE email LIKE :email AND password LIKE :password", ["email" => $user["email"], "password" => $user["password"]]);
+        $result = $this->database->queryAssoc("SELECT company, department, firstname, lastname, salutation, email, payment_id, newsletter, admin FROM user WHERE email LIKE :email AND password LIKE :password", ["email" => $user["email"], "password" => $user["password"]]);
         if (count($result) > 0) {
             return $result[0];
         }
@@ -62,8 +62,8 @@ class UserStore extends BaseStore
     {
 		if(!$this->userExists($user)){
 			$result = $this->database->execute("
-				INSERT INTO user (password, encoder, company, department, firstname, lastname, salutation, email, active, payment_id, lastlogin, newsletter, failedlogins) VALUES (:password, :encoder, :company, :department, :firstname, :lastname, :salutation, :email, :active, :payment_id, :lastlogin, :newsletter, :failedlogins);",
-				["password" => $user["password"], "encoder" => $user["encoder"], "company" => $user["company"], "department" => $user["department"], "firstname" => $user["firstname"], "lastname" => $user["lastname"], "salutation" => $user["salutation"], "email" => $user["email"], "active" => 1, "payment_id" => 1, "lastlogin" => date("Y-m-d h:i:s"), "newsletter" => $user["newsletter"], "failedlogins" => 0]);
+				INSERT INTO user (password, encoder, company, department, firstname, lastname, salutation, email, admin, payment_id, lastlogin, newsletter, failedlogins) VALUES (:password, :encoder, :company, :department, :firstname, :lastname, :salutation, :email, :admin, :payment_id, :lastlogin, :newsletter, :failedlogins);",
+				["password" => $user["password"], "encoder" => $user["encoder"], "company" => $user["company"], "department" => $user["department"], "firstname" => $user["firstname"], "lastname" => $user["lastname"], "salutation" => $user["salutation"], "email" => $user["email"], "admin" => 0, "payment_id" => 1, "lastlogin" => date("Y-m-d h:i:s"), "newsletter" => $user["newsletter"], "failedlogins" => 0]);
 			if ($result) {
 				$userId = $this->database->getLastInsertId();
 				$this->addressStore->createUserAddresses($user, $userId);

@@ -10,7 +10,7 @@ function echoNavigationItems($categoryTree, $depth, $cart)
         echo "<ul class='main-navigation'><li>" . createLink(getLangText("home"), "home") . "</li>";
 		//Admin-Account
 		if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]){
-			echo "<li>" . createLink(getLangText("admin"), "admin") . "</li>";
+			echo "<li class='nav-item nav-item-0 nav-basket'>" . createLink(getLangText("admin"), "admin") . "</li>";
 		}
 		
 		//Basket

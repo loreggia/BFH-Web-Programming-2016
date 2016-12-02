@@ -2,7 +2,7 @@
 
 [Database]
 host = "localhost"
-dbname = "shop"
-username = "shop"
-password = "vrUFQh9sdchYZymd"
+dbname = "usr_web1549_1"
+username = "web1549"
+password = "AUBJNg4?"
 port = 3306

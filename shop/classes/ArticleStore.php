@@ -68,7 +68,7 @@ class ArticleStore extends BaseStore
 		o2a.pseudoprice,
 		o2a.isDefault
 		FROM option_article o2a
-		INNER JOIN option opt ON o2a.option_id = opt.option_id
+		INNER JOIN `option` opt ON o2a.option_id = opt.option_id
 		INNER JOIN option_group ogr ON ogr.option_group_id = opt.option_group_id
 		WHERE o2a.article_id = :articleId", ["articleId" => $articleId]);
 
@@ -106,7 +106,7 @@ class ArticleStore extends BaseStore
 		FROM sets
 		INNER JOIN sets_option_article soa ON soa.sets_id = sets.sets_id
 		INNER JOIN option_article o2a ON o2a.option_article_id = soa.option_article_id
-		INNER JOIN option opt ON opt.option_id = o2a.option_id
+		INNER JOIN `option` opt ON opt.option_id = o2a.option_id
 		INNER JOIN option_group ogr ON ogr.option_group_id = opt.option_group_id
 		WHERE sets.article_id = :articleId", ["articleId" => $articleId]);
 

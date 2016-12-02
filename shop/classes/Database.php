@@ -17,7 +17,7 @@ class Database
 
         if ($this->databaseHandle == null) {
             try {
-                $dbh = new PDO("mysql:host=$host:$port;dbname=$dbname", $username, $password);
+                $dbh = new PDO("mysql:host=$host:$port;dbname=$dbname;charset=utf8", $username, $password);
                 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $this->databaseHandle = $dbh;
             } catch (PDOException $ex) {

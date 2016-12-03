@@ -37,12 +37,12 @@
 <aside>
 	<h3><?=getLangText("ac_account")?></h3>
 	<ul>
-		<li><?=createLink(getLangText("ac_overview"), "account"); ?></li>
-		<li><?=createLink(getLangText("ac_personal"), "account&mode=personal"); ?></li>
-		<li><?=createLink(getLangText("ac_address"), "account&mode=address"); ?></li>
-		<li><?=createLink(getLangText("ac_payment"), "account&mode=payment"); ?></li>
-		<li><?=createLink(getLangText("ac_orders"), "account&mode=orders"); ?></li>
-		<li><?= createLink(getLangText("logout"), "logout"); ?></li>
+		<li><?=createLink(getLangText("ac_overview"), getLangText("ac_overview"), "account"); ?></li>
+		<li><?=createLink(getLangText("ac_personal"), getLangText("ac_personal"), "account&mode=personal"); ?></li>
+		<li><?=createLink(getLangText("ac_address"), getLangText("ac_address"), "account&mode=address"); ?></li>
+		<li><?=createLink(getLangText("ac_payment"), getLangText("ac_payment"), "account&mode=payment"); ?></li>
+		<li><?=createLink(getLangText("ac_orders"), getLangText("ac_orders"), "account&mode=orders"); ?></li>
+		<li><?= createLink(getLangText("logout"), getLangText("logout"), "logout"); ?></li>
 	</ul>
 </aside>
 

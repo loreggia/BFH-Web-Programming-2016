@@ -40,12 +40,12 @@
 <aside>
 	<h3><?=getLangText("adm_administration")?></h3>
 	<ul>
-		<li><?=createLink(getLangText("adm_overview"), "admin"); ?></li>
-		<li><?=createLink(getLangText("adm_user"), "admin&mode=user"); ?></li>
-		<li><?=createLink(getLangText("adm_article"), "admin&mode=article"); ?></li>
-		<li><?=createLink(getLangText("adm_manufracturer"), "admin&mode=manufracturer"); ?></li>
-		<li><?=createLink(getLangText("adm_category"), "admin&mode=category"); ?></li>
-		<li><?=createLink(getLangText("adm_orders"), "admin&mode=orders"); ?></li>
+		<li><?=createLink(getLangText("adm_overview"), getLangText("adm_overview"), "admin"); ?></li>
+		<li><?=createLink(getLangText("adm_user"), getLangText("adm_user"), "admin&mode=user"); ?></li>
+		<li><?=createLink(getLangText("adm_article"), getLangText("adm_article"), "admin&mode=article"); ?></li>
+		<li><?=createLink(getLangText("adm_manufracturer"), getLangText("adm_manufracturer"), "admin&mode=manufracturer"); ?></li>
+		<li><?=createLink(getLangText("adm_category"), getLangText("adm_category"), "admin&mode=category"); ?></li>
+		<li><?=createLink(getLangText("adm_orders"), getLangText("adm_orders"), "admin&mode=orders"); ?></li>
 	</ul>
 </aside>
 

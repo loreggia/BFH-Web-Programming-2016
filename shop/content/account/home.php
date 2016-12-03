@@ -3,14 +3,14 @@
 <div>
 <h3><?= getLangText("ac_personal")?></h3>
 <?php print_r($_SESSION); echo "<br />"; ?>
-<?=createLink(getLangText("ac_personal_change"), "account&mode=personal"); ?>
+<?=createLink(getLangText("ac_personal_change"), getLangText("ac_personal_change"), "account&mode=personal"); ?>
 </div>
 <div>
 <h3><?= getLangText("ac_payment_select")?></h3>
 <?php $payment = $paymentStore->getById($_SESSION["user"]["payment_id"]);
  ?>
 <?= getRowText($payment, "name") ?><br />
-<?=createLink(getLangText("ac_payment_change"), "account&mode=payment"); ?>
+<?=createLink(getLangText("ac_payment_change"), getLangText("ac_payment_change"), getLangText("ac_payment_change"), "account&mode=payment"); ?>
 </div>
 <div>
 <?php
@@ -34,13 +34,13 @@ foreach ($userAddresses as $userAddress){
 	getLangText("additional2").": ".$userAddress["additional_address_line2"]."<br />"
 	);
 	
-	if($userAddress["address_mode"] == 0){echo(createLink(getLangText("ac_address_bill_change"), "account&mode=address"));}
-	else{echo(createLink(getLangText("ac_address_ship_change"), "account&mode=address"));}
+	if($userAddress["address_mode"] == 0){echo(createLink(getLangText("ac_address_bill_change"), getLangText("ac_address_bill_change"), "account&mode=address"));}
+	else{echo(createLink(getLangText("ac_address_ship_change"), getLangText("ac_address_ship_change"), "account&mode=address"));}
 }
 ?>
 </div>
 <div>
 <h3><?= getLangText("ac_orders_last")?></h3>
 (Letzte Bestellung)<br />
-<?=createLink(getLangText("ac_orders_see"), "account&mode=address"); ?>
+<?=createLink(getLangText("ac_orders_see"), getLangText("ac_orders_see"), "account&mode=address"); ?>
 </div>

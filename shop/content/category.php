@@ -8,7 +8,7 @@
         foreach ($articles as $article) {
             ?>
             <div class="article-list-item-border">
-                <?= beginLink("article", ["ordernumber" => $article["ordernumber"]]) ?>
+                <?= beginLink(getRowText($article, "name"), "article", ["ordernumber" => $article["ordernumber"]]) ?>
                 <div class="article-list-item">
                     <span class="article-list-item-name"><?= getRowText($article, "name") ?></span>
 

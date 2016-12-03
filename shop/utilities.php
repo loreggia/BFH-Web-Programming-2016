@@ -21,25 +21,25 @@ function createTree($rows, $parentId, $idColumn, $parentIdColumn)
     return $children;
 }
 
-function beginLink($action, $params = null)
+function beginLink($title, $action, $params = null)
 {
-    global $rootLink;
-    $paramString = "";
+	global $rootLink;
+	$paramString = "";
 
-    if ($params && count($params) > 0) {
-        while ($param = current($params)) {
-            $paramString .= "&" . key($params) . "=" . $param;
-            next($params);
-        }
+	if ($params && count($params) > 0) {
+		while ($param = current($params)) {
+			$paramString .= "&" . key($params) . "=" . $param;
+			next($params);
+		}
 
-    }
-    $url = $rootLink . "index.php?action=" . $action . $paramString;
-    return '<a href="' . $url . '">';
+	}
+	$url = $rootLink . "index.php?action=" . $action . $paramString;
+	return '<a href="' . $url . '" title="' . $title . '">';
 }
 
-function createLink($name, $action, $params = null)
+function createLink($name, $title, $action, $params = null)
 {
-    return beginLink($action, $params) . $name . '</a>';
+	return beginLink($title, $action, $params) . $name . '</a>';
 }
 
 function saveUploadedImage(ImageStore $imageStore, $fileInputName = "file", $altInputName = "alt")

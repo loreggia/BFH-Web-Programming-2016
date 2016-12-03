@@ -19,13 +19,17 @@ class Cart {
 		if (!isset($_SESSION["cart"][$item])) $_SESSION["cart"][$item] = 0;
 		$_SESSION["cart"][$item] += $num;
 	}
+	
+	public function setItem($item, $num) {
+		$this->checkCart();
+		if (!isset($_SESSION["cart"][$item])) $_SESSION["cart"][$item] = $num;
+		$_SESSION["cart"][$item] = $num;
+	}
 
-	public function removeItem($item, $num) {
+	public function removeItem($item) {
 		$this->checkCart();
 		if (!isset($_SESSION["cart"][$item])) return;
-		
-		$_SESSION["cart"][$item] -= $num;
-		if ($_SESSION["cart"][$item] <= 0) unset($_SESSION["cart"][$item]);
+		unset($_SESSION["cart"][$item]);
 	}
 	
 	public function getItems() {
@@ -46,9 +50,11 @@ class Cart {
 			$currentArticle = $this->articleStore->getArticle($key);
 			$subtotal = $currentArticle['price']*$item;
 			$total += $subtotal;
-			$result .= beginLink("article", ["ordernumber" => $currentArticle["ordernumber"]]).getRowText($currentArticle, "name")."</a>".$currentArticle['price'].", $item, $subtotal<br />";
+			
+			//Link hier manuell, da es sonst zu Problemen kommt...
+			$result .= beginLink(getRowText($currentArticle, "name"), "article", ["ordernumber" => $currentArticle["ordernumber"]]).getRowText($currentArticle, "name")."</a>".$currentArticle['price'].", $item, $subtotal<br />";
 		}
-		
+	
 		if($total != 0){
 			$result .= "<br /><br />Total: $total";
 		}
@@ -56,5 +62,66 @@ class Cart {
 			$result .= getLangText("noArticlesCart");
 		}
 		return "$result</div>";
+	}
+	
+	public function generateBasket(){
+		$this->checkCart();
+		$result = '
+				<div class="table-div">
+				<div class="table-tr table-header">
+					<div class="table-td table-article-row">Artikel</div>
+					<div class="table-td">Anzahl</div>
+					<div class="table-td">Stückpreis</div>
+					<div class="table-td">Summe</div>
+					<div class="table-td">&nbsp;</div>
+				</div>
+				';
+		$total = 0;
+		foreach($_SESSION["cart"] as $key => $item){
+			$currentArticle = $this->articleStore->getArticle($key);
+			$subtotal = $currentArticle['price']*$item;
+			$total += $subtotal;
+			
+			$fors = "";
+			for($i=1; $i <= 100; $i++){
+				$fors .= '<option value="'.$i.'"';
+				if($i == $item){$fors .= ' selected="selected"';}
+				$fors .= '>'.$i.'</option>';
+			}
+			
+			$result .= '	<div class="table-tr">
+			<div class="table-td table-article-row">';
+			
+			if ($currentArticle["image"]) {
+				$result .= beginLink(getRowText($currentArticle, "name"), "article", ["ordernumber" => $currentArticle["ordernumber"]]).'<img src="' . $article["image"]["url"] . '" alt="' . $article["image"]["alt"] . '" /></a>';
+			}			
+			
+			$result .= beginLink(getRowText($currentArticle, "name"), "article", ["ordernumber" => $currentArticle["ordernumber"]]).getRowText($currentArticle, "name").'</a>
+				<p class="content--sku content">Artikel-Nr.: '.$currentArticle["ordernumber"].'</p>
+			</div>
+			<div class="table-td">
+				<form action="process/changeQuantity.php" method="post">
+					<select name="quantity" onchange="this.form.submit()">'.$fors.'</select>
+					<input name="article" value="'.$currentArticle["ordernumber"].'" type="hidden">
+				</form>
+			</div>
+			<div class="table-td">'.$currentArticle['price'].'</div>
+			<div class="table-td">'.$subtotal.'</div>
+			<div class="table-td">
+				<form action="process/removeArticle.php" method="post">
+					<button type="submit" class="btn is--small column--actions-link" title="Löschen">X</button>
+					<input name="article" value="'.$currentArticle["ordernumber"].'" type="hidden">
+				</form>
+			</div>
+		</div>';
+		}
+	
+		if($total != 0){
+			$result .= "</div><br /><br />Total: $total";
+		}
+		else{
+			$result = getLangText("noArticlesCart");
+		}
+		return "$result";
 	}
 }

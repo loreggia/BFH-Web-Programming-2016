@@ -7,17 +7,16 @@ $categoryTree = $categoryStore->getCategoryTree();
 function echoNavigationItems($categoryTree, $depth, $cart)
 {
     if ($depth == 0) {
-        echo "<ul class='main-navigation'><li>" . createLink(getLangText("home"), "home") . "</li>";
+        echo "<ul class='main-navigation'><li>" . createLink(getLangText("home"), getLangText("home"), "home") . "</li>";
 		//Admin-Account
 		if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]){
-			echo "<li class='nav-item nav-item-0 nav-basket'>" . createLink(getLangText("admin"), "admin") . "</li>";
+			echo "<li class='nav-item nav-item-0 nav-basket'>" . createLink(getLangText("admin"), getLangText("admin"), "admin") . "</li>";
 		}
 		
 		//Basket
-		echo "<li class='nav-item nav-item-0 nav-basket'>" . createLink(getLangText("basket"), "basket");
-		echo "<ul class='nav-category-1'><li class='nav-item nav-item-1'>";
+		echo "<li class='nav-item nav-item-0 nav-basket'>" . createLink(getLangText("basket"), getLangText("basket"), "basket");
+		echo "<ul class='nav-category-1 ul-basket'><li class='nav-item nav-item-1'>";
 		echo $cart->generateMiniCart();
-		
 		echo "</li></li></ul>";
     } else {
         echo "<ul class='nav-category-$depth'>";
@@ -32,7 +31,7 @@ function echoNavigationItems($categoryTree, $depth, $cart)
                 $linkText .= " &rArr;";
             }
 
-            echo createLink($linkText, "category", ["categoryUrl" => $category["url"]]);
+            echo createLink($linkText, $linkText, "category", ["categoryUrl" => $category["url"]]);
             echoNavigationItems($category["children"], $depth + 1, $cart);
             echo "</li>";
         }

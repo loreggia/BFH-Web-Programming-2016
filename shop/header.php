@@ -1,5 +1,5 @@
 <div id="logo">
-    <?php echo createLink("<img src=\"resources/images/logo.png\"/>", "home"); ?>
+    <?php echo createLink('<img src="resources/images/logo.png">', getLangText("home"), "home"); ?>
 </div>
 
 <div id="language-selector">
@@ -23,10 +23,10 @@
 <div id="user-info">
     <?php
 		if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]){
-			echo createLink(getLangText("account")." (".$_SESSION["user"]["email"].")", "account");
+			echo createLink(getLangText("account")." (".$_SESSION["user"]["email"].")", getLangText("account"), "account");
 		}
 		else{
-			echo createLink(getLangText("account"), "login");
+			echo createLink(getLangText("account"), getLangText("account"), "login");
 		}
 	?>
 </div>

@@ -24,6 +24,7 @@ switch ($action) {
 
 	case "account":
 	case "admin":
+	case "basket":
     case "category":
     case "login":
 	case "logout":

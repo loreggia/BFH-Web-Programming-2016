@@ -63,5 +63,6 @@ $LANG["de"] = [
 	"adm_article" => "Artikel",
 	"adm_manufracturer" => "Hersteller",
 	"adm_category" => "Kategorie",
-	"adm_orders" => "Bestellung"
+	"adm_orders" => "Bestellung",
+	"formInfo" => "* Alle mit Stern gekennzeichneten Felder müssen mindestens 2 Zeichen enthalten bevor das Formular abgeschickt werden kann."
 	];

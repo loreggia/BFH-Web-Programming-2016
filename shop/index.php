@@ -61,6 +61,7 @@ if (isset($pageTitle) && $pageTitle) {
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="./resources/js/validate.js"></script>
+	<script src="./resources/js/jsEnabled.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="resources/css.css"/>
 </head>
 <body>

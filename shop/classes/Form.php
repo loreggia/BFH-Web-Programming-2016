@@ -27,7 +27,7 @@ class Form {
 		foreach($this->elements as $element){
 			$form .= $this->getElement($element);
 		}
-		$form .= "</ul></form>";
+		$form .= "</ul><p class='formInfo'>". getLangText("formInfo")."</p></form>";
 		return $form;
 	}
 	

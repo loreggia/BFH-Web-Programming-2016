@@ -63,5 +63,6 @@ $LANG["en"] = [
 	"adm_article" => "Article",
 	"adm_manufracturer" => "Manufracturer",
 	"adm_category" => "Category",
-	"adm_orders" => "Orders"
+	"adm_orders" => "Orders",
+	"formInfo" => "* All data with a star needs to have at least to characters for sending off the form."
 ];

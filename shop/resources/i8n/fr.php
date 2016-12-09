@@ -60,5 +60,6 @@ $LANG["fr"] = [
 	"adm_article" => "Article_trToFr",
 	"adm_manufracturer" => "Manufracturer_trToFr",
 	"adm_category" => "Category_trToFr",
-	"adm_orders" => "Orders_trToFr"
+	"adm_orders" => "Orders_trToFr",
+	"formInfo" => "* All data with a star needs to have at least to characters for sending off the form._trToFr"
 ];

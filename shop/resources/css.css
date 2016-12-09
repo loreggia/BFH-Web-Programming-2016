@@ -310,3 +310,8 @@ input.count {
 	text-align: left;
 	width: 70%;
 }
+
+.formInfo {
+	font-size: 0.8em;
+	color: grey;
+}

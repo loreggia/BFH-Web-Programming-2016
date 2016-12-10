@@ -1,13 +1,12 @@
 <?php
 require_once "../requireOnces.php";
-// TODO options, etc
-if (isset($_POST["article"])) {
-    $cart->removeItem($_POST["article"]);
-	
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-	die();
+if (isset ( $_POST ["article"] )) {
+	$cart->removeItem ( $_POST ["article"] );
 }
-else {
-    header("Location: ./../");
-    die();
+
+if ($_POST ["js"] == "yes") {
+	echo $cart->generateMiniCart () . "XXXXXX" . $cart->generateBasket ();
+} else {
+	header ( 'Location: ' . $_SERVER ['HTTP_REFERER'] );
+	die ();
 }

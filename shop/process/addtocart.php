@@ -1,8 +1,14 @@
 <?php
 require_once "../requireOnces.php";
-// TODO options, etc
-if (isset($_POST["count"]) && isset($_POST["ordernumber"])) {
-    $cart->addItem($_POST["ordernumber"], $_POST["count"]);
+if (isset ( $_POST ["count"] ) && isset ( $_POST ["article"] )) {
+	$cart->addItem ( $_POST ["article"], $_POST ["count"] );
 }
 
-echo $cart->generateMiniCart();
+if ($_POST ["js"] == "yes") {
+	echo $cart->generateMiniCart ();
+} else {
+	header ( 'Location: ' . $_SERVER ['HTTP_REFERER'] );
+	die ();
+}
+
+

@@ -67,6 +67,7 @@ class Cart {
 	public function generateBasket(){
 		$this->checkCart();
 		$result = '
+				<div id="basket">
 				<div class="table-div">
 				<div class="table-tr table-header">
 					<div class="table-td table-article-row">Artikel</div>
@@ -100,16 +101,19 @@ class Cart {
 				<p class="content--sku content">Artikel-Nr.: '.$currentArticle["ordernumber"].'</p>
 			</div>
 			<div class="table-td">
-				<form action="process/changeQuantity.php" method="post">
-					<select name="quantity" onchange="this.form.submit()">'.$fors.'</select>
+				<form action="process/changeQuantity.php" method="post" id="changeQuantity">
+					<input type="hidden" name="js" value="no" />
+					<select name="quantity">'.$fors.'</select>
 					<input name="article" value="'.$currentArticle["ordernumber"].'" type="hidden">
+					<button type="submit" title="Ändern">Ändern</button>
 				</form>
 			</div>
 			<div class="table-td">'.$currentArticle['price'].'</div>
 			<div class="table-td">'.$subtotal.'</div>
 			<div class="table-td">
-				<form action="process/removeArticle.php" method="post">
-					<button type="submit" class="btn is--small column--actions-link" title="Löschen">X</button>
+				<form action="process/removeArticle.php" method="post" id="removeArticle">
+					<input type="hidden" name="js" value="no" />
+					<button type="submit" title="Löschen">X</button>
 					<input name="article" value="'.$currentArticle["ordernumber"].'" type="hidden">
 				</form>
 			</div>
@@ -117,7 +121,7 @@ class Cart {
 		}
 	
 		if($total != 0){
-			$result .= "</div><br /><br />Total: $total";
+			$result .= "</div><br /><br />Total: $total</div>";
 		}
 		else{
 			$result = getLangText("noArticlesCart");

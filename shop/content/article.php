@@ -39,7 +39,8 @@ $category = $categoryStore->getCategoryOfArticle($article["article_id"]);
             </p>
             <p>
                 <form name="addToCart" id="addToCart" action="process/addtocart.php" method="post">
-                    <input type="hidden" name="ordernumber" value="<?= $article["ordernumber"] ?>" />
+                    <input type="hidden" name="js" value="no" />
+                    <input type="hidden" name="article" value="<?= $article["ordernumber"] ?>" />
                     <span class="article-cart"><input type="submit" id="addToCartSubmit" value="<?= getLangText("addtocart1") ?>" /> <input class="count" type="number" name="count" value="1" min="1" /> <?= getLangText("addtocart2") ?></span>
                 </form>
             </p>

@@ -58,11 +58,12 @@ if (isset($pageTitle) && $pageTitle) {
 <head>
     <title><?= $siteTitle ?></title>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="./resources/js/validate.js"></script>
 	<script src="./resources/js/jsEnabled.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="resources/css.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./resources/icon.ico" />
 </head>
 <body>
 <div class="container">

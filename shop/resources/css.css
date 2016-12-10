@@ -1,6 +1,6 @@
 /* This is a CSS comment */
 body, html {
-	width: 80%;
+	width: 90%;
 	height: 100%;
 	margin: 0 auto 0 auto;
 	padding: 0;
@@ -35,13 +35,24 @@ header {
 	padding: 10px;
 	background-color: #eee;
 	min-height: 50px;
+	max-height: 50px;
 	border: solid #aaa;
 	border-width: 0 1px;
+	height: 100%;
 }
 
 #logo {
-	height: 100%;
+	height:100%;
 	float: left;
+	font-size: 2.5em;
+}
+
+#logo img{
+	max-height: 100%
+}
+
+#logo a:hover{
+	color: black;
 }
 
 #search-panel {

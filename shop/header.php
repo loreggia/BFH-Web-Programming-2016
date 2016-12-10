@@ -1,5 +1,5 @@
 <div id="logo">
-    <?php echo createLink('<img src="resources/images/logo.png">', getLangText("home"), "home"); ?>
+    <?php echo createLink('<img src="./resources/icon.ico">Computershop', getLangText("home"), "home"); ?>
 </div>
 
 <div id="language-selector">
